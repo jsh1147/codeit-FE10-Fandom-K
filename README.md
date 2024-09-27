@@ -49,46 +49,25 @@
 
 - **개발 환경**
 
-<img src="https://img.shields.io/badge/vscode-007ACC?"/>
-<img src="https://img.shields.io/badge/git-F05032?logo=git&logoColor=white"/>
-<img src="https://img.shields.io/badge/github-181717?logo=github&logoColor=white"/>
-
-<br /><br />
+  - <img src="https://img.shields.io/badge/vscode-007ACC?"/> <img src="https://img.shields.io/badge/git-F05032?logo=git&logoColor=white"/> <img src="https://img.shields.io/badge/github-181717?logo=github&logoColor=white"/>
 
 - **빌드 및 배포**
 
-<img src="https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white"/>
-<img src="https://img.shields.io/badge/vite-7B64FF?logo=vite&logoColor=FFCC25"/>
-<img src="https://img.shields.io/badge/Vercel-000000?logo=Vercel&logoColor=white"/>
-
-<br /><br />
+  - <img src="https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white"/> <img src="https://img.shields.io/badge/vite-7B64FF?logo=vite&logoColor=FFCC25"/> <img src="https://img.shields.io/badge/Vercel-000000?logo=Vercel&logoColor=white"/>
 
 - **FE 기술**
 
-<img src="https://img.shields.io/badge/html-FF6F00?logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/css-0051FF?logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/css_modules-000000?logo=cssmodules&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/>
-<img src="https://img.shields.io/badge/react-91E3FF?logo=react&logoColor=087EA4"/>
-<img src="https://img.shields.io/badge/react_router-CA4245?logo=reactrouter&logoColor=white"/>
-
-<br /><br />
+  - <img src="https://img.shields.io/badge/html-FF6F00?logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css-0051FF?logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/css_modules-000000?logo=cssmodules&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/react-91E3FF?logo=react&logoColor=087EA4"/> <img src="https://img.shields.io/badge/react_router-CA4245?logo=reactrouter&logoColor=white"/>
 
 - **품질 관리**
 
-<img src="https://img.shields.io/badge/prettier-2A3571?logo=prettier&logoColor=C4FFFD"/>
-<img src="https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white"/>
-<img src="https://img.shields.io/badge/husky-8E2F00"/>
-
-<br /><br />
+  - <img src="https://img.shields.io/badge/prettier-2A3571?logo=prettier&logoColor=C4FFFD"/> <img src="https://img.shields.io/badge/eslint-4B32C3?logo=eslint&logoColor=white"/> <img src="https://img.shields.io/badge/husky-8E2F00"/>
 
 - **협업 도구**
 
-<img src="https://img.shields.io/badge/Discord-5865F2?logo=Discord&logoColor=white"/>
-<img src="https://img.shields.io/badge/notion-000000?logo=notion&logoColor=white"/>
-<img src="https://img.shields.io/badge/figma-000000?logo=figma&logoColor=FF5C3B"/>
+  - <img src="https://img.shields.io/badge/Discord-5865F2?logo=Discord&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?logo=notion&logoColor=white"/> <img src="https://img.shields.io/badge/figma-000000?logo=figma&logoColor=FF5C3B"/>
 
-<br /><br />
+<br />
 
 ## 🗂️ 프로젝트 구조
 
