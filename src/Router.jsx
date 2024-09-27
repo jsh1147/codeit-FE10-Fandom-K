@@ -4,6 +4,8 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { CreditProvider } from './contexts/CreditContext';
+import CreditTestPage from './pages/CreditTestPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +14,7 @@ const router = createBrowserRouter(
       <Route>
         <Route path="list" element={<h1>List Page</h1>} />
         <Route path="mypage" element={<h1>My Page</h1>} />
+        <Route path="creditTest" element={<CreditTestPage />} />
         <Route path="*" element={<h1>Non Page</h1>} />
       </Route>
     </>,
@@ -19,5 +22,9 @@ const router = createBrowserRouter(
 );
 
 export default function Router() {
-  return <RouterProvider router={router} />;
+  return (
+    <CreditProvider>
+      <RouterProvider router={router} />
+    </CreditProvider>
+  );
 }
