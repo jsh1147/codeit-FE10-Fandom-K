@@ -2,7 +2,7 @@
 
 <img src="./src/assets/README_banner.png" alt="Fandom-K 배너"/>
 
-> 코드잇 스프린트 10기 FE 기초 프로젝트 ( 2024.09.24 ~ 2024.10.11 )<br />
+> 코드잇 스프린트 10기 Part2-2팀 FE 기초 프로젝트 ( 2024.09.24 ~ 2024.10.11 )<br />
 > 아이돌 조공 플랫폼 **Fandom-K**
 
 <br />
@@ -17,7 +17,7 @@
 
 <div align="center">
 
-|                                  김지윤                                   |                                  김희진                                  |                                  오혁재                                   |                                  정성현                                  |
+|                                  김지윤                                   |                                  김희진                                  |                                  오혁재                                   |                               정성현(팀장)                               |
 | :-----------------------------------------------------------------------: | :----------------------------------------------------------------------: | :-----------------------------------------------------------------------: | :----------------------------------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/174712986" width="180"> | <img src="https://avatars.githubusercontent.com/u/77238424" width="180"> | <img src="https://avatars.githubusercontent.com/u/176660375" width="180"> | <img src="https://avatars.githubusercontent.com/u/81379968" width="180"> |
 |                     [@21ow](https://github.com/21ow)                      |                 [@devmanta](https://github.com/devmanta)                 |                [@duckjae12](https://github.com/duckjae12)                 |                  [@jsh1147](https://github.com/jsh1147)                  |
