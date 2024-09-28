@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { CreditProvider } from './contexts/CreditContext';
 import CreditTestPage from './pages/CreditTestPage';
 
 const router = createBrowserRouter(
@@ -22,9 +21,5 @@ const router = createBrowserRouter(
 );
 
 export default function Router() {
-  return (
-    <CreditProvider>
-      <RouterProvider router={router} />
-    </CreditProvider>
-  );
+  return <RouterProvider router={router} />;
 }
