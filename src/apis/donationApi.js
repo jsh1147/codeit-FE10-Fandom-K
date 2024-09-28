@@ -1,22 +1,25 @@
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from '../constants/apiConstants';
 
 export async function getdonationList(cursor, pageSize = 10, priorityIdolIds) {
-  let url=`${BASE_URL}/donations`
+  let url = `${BASE_URL}/donations`;
   if (cursor) {
-    url+=`&cursor=${cursor}`
+    url += `&cursor=${cursor}`;
   }
+
   if (pageSize) {
-    url+=`&pageSize=${pageSize}`
+    url += `&pageSize=${pageSize}`;
   }
+
   if (priorityIdolIds) {
-    url+=`&priorityIdolIds=${priorityIdolIds}`
+    url += `&priorityIdolIds=${priorityIdolIds}`;
   }
+
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
@@ -24,7 +27,7 @@ export async function getdonationList(cursor, pageSize = 10, priorityIdolIds) {
     }
 
     const result = await response.json();
-    console.log('후원 목록:', result.list); 
+    return result;
   } catch (error) {
     console.error('후원 목록 불러오기 실패:', error);
     return [];

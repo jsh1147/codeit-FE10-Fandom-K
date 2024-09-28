@@ -1,22 +1,25 @@
-import { BASE_URL } from "../constants/constants";
+import { BASE_URL } from '../constants/apiConstants';
 
 export async function getIdolList(cursor, pageSize = 10, keyword) {
-  let url=`${BASE_URL}/idols`
+  let url = `${BASE_URL}/idols`;
   if (cursor) {
-    url+=`&cursor=${cursor}`
+    url += `&cursor=${cursor}`;
   }
+
   if (pageSize) {
-    url+=`&pageSize=${pageSize}`
+    url += `&pageSize=${pageSize}`;
   }
+
   if (keyword) {
-    url+=`&keyword=${keyword}`
+    url += `&keyword=${keyword}`;
   }
+
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
 
     if (!response.ok) {
@@ -24,9 +27,7 @@ export async function getIdolList(cursor, pageSize = 10, keyword) {
     }
 
     const result = await response.json();
-    console.log('아이돌 목록:', result.list); 
-    console.log(result.list[0][id]);
-    return result.list;
+    return result;
   } catch (error) {
     console.error('아이돌 목록 불러오기 실패:', error);
     return [];
