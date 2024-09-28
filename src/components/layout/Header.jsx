@@ -13,11 +13,29 @@ export default function Header() {
 
   return (
     <header className={styles['header']}>
-      <Link to="/list" onClick={handleLinkClick}>
-        <img src={logo} alt="메인 페이지 바로가기" />
+      <Link
+        className={styles['header__logoLink']}
+        to="/list"
+        onClick={handleLinkClick}
+        aria-label="메인 페이지 이동"
+      >
+        <img
+          className={styles['header__logo']}
+          src={logo}
+          alt="Fandom-K 로고"
+        />
       </Link>
-      <Link to="/mypage" onClick={handleLinkClick}>
-        <img src={profile} alt="마이 페이지 바로가기" />
+      <Link
+        className={styles['header__profileLink']}
+        to="/mypage"
+        onClick={handleLinkClick}
+        aria-label="마이 페이지 이동"
+      >
+        <img
+          className={styles['header__profile']}
+          src={profile}
+          alt="프로필 사진"
+        />
       </Link>
     </header>
   );
