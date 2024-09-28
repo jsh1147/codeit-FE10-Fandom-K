@@ -145,11 +145,6 @@ button {
   outline: none;
 }
 
-select,
-button {
-  cursor: pointer;
-}
-
 button {
   background-color: transparent;
 }

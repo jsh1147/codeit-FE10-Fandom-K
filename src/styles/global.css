@@ -2,3 +2,8 @@
   box-sizing: border-box;
   font-family: 'Pretendard';
 }
+
+select,
+button {
+  cursor: pointer;
+}
