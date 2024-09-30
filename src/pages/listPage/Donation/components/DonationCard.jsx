@@ -45,7 +45,13 @@ export default function DonationCard({
           deadline={deadline}
         />
       </div>
-      <Modal isOpen={modalOpen} onClose={closeModal} />
+      <Modal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        title={title}
+        subtitle={subtitle}
+        idol={idol}
+      />
     </div>
   );
 }

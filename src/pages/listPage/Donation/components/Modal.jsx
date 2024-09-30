@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
 import creditIcon from '@/assets/icons/credit.svg';
 
-export default function Modal({ isOpen, onClose }) {
+export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
   if (!isOpen) return null;
 
   const handleOnCloseModal = (e) => {
@@ -25,13 +25,13 @@ export default function Modal({ isOpen, onClose }) {
         <section className={styles.contentContainer}>
           <div className={styles.contentWrapper}>
             <img
-              src="https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Fandom-K/idol/1727362424463/MARK.webp"
-              alt="test"
+              src={idol.profilePicture}
+              alt={idol.name}
               className={styles.idolImg}
             />
             <div className={styles.titleWrapper}>
-              <span className={styles.subtitle}>강남역 광고</span>
-              <h4 className={styles.title}>민지 2023 첫 광고</h4>
+              <span className={styles.subtitle}>{subtitle}</span>
+              <h4 className={styles.title}>{title}</h4>
             </div>
           </div>
         </section>
