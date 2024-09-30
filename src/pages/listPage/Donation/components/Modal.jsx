@@ -5,10 +5,12 @@ import closeIcon from '@/assets/icons/close-modal.svg';
 import creditIcon from '@/assets/icons/credit.svg';
 import { useState } from 'react';
 import { donationsMsg } from '@/constants/errorMessages';
+import { useCredit } from '@/hooks/useCredit';
 
 export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
-  // const [donatedCredit, setDonatedCredit] = useState(0);
-  const [errorMsg, setErrorMsg] = useState();
+  const [donatedCredit, setDonatedCredit] = useState(0);
+  const [errorMsg, setErrorMsg] = useState('');
+  const { credit, deductCredit } = useCredit();
 
   if (!isOpen) return null;
 
@@ -26,7 +28,18 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     setErrorMsg(null);
-    // setDonatedCredit(e.target.value);
+    setDonatedCredit(e.target.value);
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    if (credit < donatedCredit) {
+      setErrorMsg(donationsMsg.creditNotEnough);
+      return;
+    }
+
+    deductCredit(donatedCredit);
   };
 
   return ReactDOM.createPortal(
@@ -51,7 +64,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
             </div>
           </div>
         </section>
-        <form className={styles.creditContainer}>
+        <form className={styles.creditContainer} onSubmit={handleOnSubmit}>
           <div>
             <div
               className={`${styles.creditInputWrapper} ${errorMsg ? styles.error : ''}`}
@@ -68,7 +81,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
               <span className={styles.errorMessage}>{errorMsg}</span>
             )}
           </div>
-          <Button text="후원하기" type="submit" disabled={true} />
+          <Button text="후원하기" type="submit" disabled={!donatedCredit} />
         </form>
       </div>
     </div>,
