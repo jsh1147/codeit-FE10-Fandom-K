@@ -10,7 +10,6 @@ export default function Donations() {
   useEffect(() => {
     const fetchItems = async () => {
       const { list } = await getDonations({});
-      console.log({ list });
       setDonations(list);
     };
 

@@ -9,7 +9,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={styles.button}
+      className={`${styles.button} ${disabled ? styles.buttonDisabled : ''}`}
       onClick={onClick}
       disabled={disabled}
     >
