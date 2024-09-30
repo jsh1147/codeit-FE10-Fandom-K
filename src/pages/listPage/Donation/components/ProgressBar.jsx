@@ -1,7 +1,7 @@
 import styles from './ProgressBar.module.css';
-import { getCompletionRate } from '@utils/donationCaculator';
-import { getTimeLeft } from '@utils/getTimeLeft';
-import creditIcon from '@assets/icons/credit.svg';
+import { getCompletionRate } from '@/utils/donationCaculator';
+import { getTimeLeft } from '@/utils/getTimeLeft';
+import creditIcon from '@/assets/icons/credit.svg';
 
 export default function ProgressBar({
   targetDonation,

@@ -7,11 +7,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
-      '@apis': '/src/apis',
-      '@assets': '/src/assets',
-      '@components': '/src/components',
-      '@utils': '/src/utils',
-      '@hooks': '/src/hooks',
     },
   },
 });
