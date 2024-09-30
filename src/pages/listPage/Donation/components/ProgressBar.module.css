@@ -10,13 +10,13 @@
 }
 
 .targetDonation {
-  color: #f96d69;
+  color: var(--orange-primary);
   font-size: 12px;
   font-weight: 400;
 }
 
 .deadline {
-  color: #f7f7f8;
+  color: var(--white-100);
   font-size: 12px;
   font-weight: 400;
 }
@@ -30,5 +30,5 @@
 .progressValue {
   height: 2px;
   /* width: 20%; */
-  background: #f96d69;
+  background: var(--orange-primary);
 }
