@@ -16,9 +16,15 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
   if (!isOpen) return null;
 
   const handleOnCloseModal = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
+    if (
+      e.currentTarget.tagName.toLowerCase() === 'div' &&
+      !(e.target === e.currentTarget)
+    ) {
+      return;
     }
+
+    setErrorMsg('');
+    onClose();
   };
 
   const handleCreditOnChange = (e) => {
@@ -42,7 +48,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
 
     deductCredit(donatedCredit);
     setDonatedCredit(0);
-    toast.success('Default Notification !');
+    toast.success('🌈 후원 완료!');
     onClose();
   };
 
@@ -51,7 +57,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
       <div className={styles.modalContent}>
         <section className={styles.modalTitleContainer}>
           <h4 className={styles.modalTitle}>후원하기</h4>
-          <button onClick={onClose} className={styles.modalClose}>
+          <button onClick={handleOnCloseModal} className={styles.modalClose}>
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </section>
