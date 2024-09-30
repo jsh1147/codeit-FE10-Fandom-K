@@ -1,4 +1,4 @@
-import DonationList from './Donation/Donations';
+import DonationList from './Donation/Donations';
 import styles from './ListPage.module.css';
 
 export default function ListPage() {

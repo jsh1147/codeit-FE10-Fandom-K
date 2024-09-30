@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import styles from './Donations.module.css';
-import { getDonations } from '../../../apis/donationsApi';
+import { getDonations } from '@apis/donationsApi';
 import DonationCard from './components/DonationCard';
 
 export default function Donations() {
