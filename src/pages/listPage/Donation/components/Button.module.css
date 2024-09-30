@@ -1,0 +1,12 @@
+.button {
+  border-radius: 3px;
+  background: linear-gradient(90deg, #f86f65 0%, #fe5493 100%);
+  width: 234px;
+  height: 40px;
+  padding: 2px 16px 3px 16px;
+  text-align: center;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-weight: 700;
+}
