@@ -27,6 +27,7 @@
 }
 
 .buttonWrapper {
+  width: 234px;
   position: absolute;
   transform: translate(10%, -170%);
 }
