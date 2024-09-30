@@ -1,6 +1,6 @@
 import { BASE_URL } from '../constants/apiConstants';
 
-export async function getIdolChart(gender, cursor, pageSize = 10) {
+export async function getCharts(gender, cursor, pageSize = 10) {
   let url = `${BASE_URL}/charts/{gender}?gender=${gender}`;
   if (cursor) {
     url += `&cursor=${cursor}`;

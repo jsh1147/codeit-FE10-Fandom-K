@@ -1,9 +1,9 @@
 import { BASE_URL } from '../constants/apiConstants';
 
 export async function getdonationList(cursor, pageSize = 10, priorityIdolIds) {
-  let url = `${BASE_URL}/donations`;
+  let url = `${BASE_URL}/donations?`;
   if (cursor) {
-    url += `&cursor=${cursor}`;
+    url += `cursor=${cursor}`;
   }
 
   if (pageSize) {

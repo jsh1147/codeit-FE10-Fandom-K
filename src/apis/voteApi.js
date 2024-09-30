@@ -1,6 +1,6 @@
 import { BASE_URL } from '../constants/apiConstants';
 
-export async function createVote(idolId) {
+export async function postVotes(idolId) {
   const url = `${BASE_URL}/votes`;
   const requestBody = {
     idolId: idolId,

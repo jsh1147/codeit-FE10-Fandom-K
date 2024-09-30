@@ -1,9 +1,9 @@
 import { BASE_URL } from '../constants/apiConstants';
 
-export async function getIdolList(cursor, pageSize = 10, keyword) {
-  let url = `${BASE_URL}/idols`;
+export async function getIdols(cursor, pageSize = 10, keyword) {
+  let url = `${BASE_URL}/idols?`;
   if (cursor) {
-    url += `&cursor=${cursor}`;
+    url += `cursor=${cursor}`;
   }
 
   if (pageSize) {
