@@ -6,6 +6,7 @@ import creditIcon from '@/assets/icons/credit.svg';
 import { useState } from 'react';
 import { donationsMsg } from '@/constants/errorMessages';
 import { useCredit } from '@/hooks/useCredit';
+import { toast } from 'react-toastify';
 
 export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
   const [donatedCredit, setDonatedCredit] = useState(0);
@@ -40,6 +41,9 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     deductCredit(donatedCredit);
+    setDonatedCredit(0);
+    toast.success('Default Notification !');
+    onClose();
   };
 
   return ReactDOM.createPortal(
