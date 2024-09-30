@@ -3,14 +3,30 @@ import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
 import creditIcon from '@/assets/icons/credit.svg';
+import { useState } from 'react';
+import { donationsMsg } from '@/constants/errorMessages';
 
 export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
+  // const [donatedCredit, setDonatedCredit] = useState(0);
+  const [errorMsg, setErrorMsg] = useState();
+
   if (!isOpen) return null;
 
   const handleOnCloseModal = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
+  };
+
+  const handleCreditOnChange = (e) => {
+    if (isNaN(Number(e.target.value))) {
+      e.target.value = '';
+      setErrorMsg(donationsMsg.onlyNumber);
+      return;
+    }
+
+    setErrorMsg(null);
+    // setDonatedCredit(e.target.value);
   };
 
   return ReactDOM.createPortal(
@@ -36,13 +52,21 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
           </div>
         </section>
         <form className={styles.creditContainer}>
-          <div className={styles.creditInputWrapper}>
-            <input
-              className={styles.creditInput}
-              type="text"
-              placeholder="크레딧 입력"
-            />
-            <img src={creditIcon} alt="크레딧 아이콘" />
+          <div>
+            <div
+              className={`${styles.creditInputWrapper} ${errorMsg ? styles.error : ''}`}
+            >
+              <input
+                className={styles.creditInput}
+                type="text"
+                placeholder="크레딧 입력"
+                onChange={handleCreditOnChange}
+              />
+              <img src={creditIcon} alt="크레딧 아이콘" />
+            </div>
+            {errorMsg && (
+              <span className={styles.errorMessage}>{errorMsg}</span>
+            )}
           </div>
           <Button text="후원하기" type="submit" disabled={true} />
         </form>

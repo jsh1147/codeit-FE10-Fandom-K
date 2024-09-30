@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import styles from './Donations.module.css';
+// import { getDonations } from '@/apis/donationsApi';
 import { getDonations } from '@/apis/donationsMockApi';
+
 import DonationCard from './components/DonationCard';
 
 export default function Donations() {
@@ -9,6 +11,7 @@ export default function Donations() {
 
   useEffect(() => {
     const fetchItems = async () => {
+      // const { list } = await getDonations();
       const { list } = await getDonations({});
       setDonations(list);
     };
