@@ -1,0 +1,34 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creditWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.targetDonation {
+  color: #f96d69;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.deadline {
+  color: #f7f7f8;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+.progressValue {
+  height: 2px;
+  /* width: 20%; */
+  background: #f96d69;
+}
