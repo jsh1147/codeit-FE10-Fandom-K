@@ -44,7 +44,7 @@ export default function Modal({ isOpen, onClose }) {
             />
             <img src={creditIcon} alt="크레딧 아이콘" />
           </div>
-          <Button text="후원하기" type="submit" />
+          <Button text="후원하기" type="submit" disabled={true} />
         </form>
       </div>
     </div>,

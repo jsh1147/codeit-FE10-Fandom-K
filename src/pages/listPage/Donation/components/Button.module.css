@@ -10,3 +10,8 @@
   font-size: 13px;
   font-weight: 700;
 }
+
+.buttonDisabled {
+  background: var(--gray-200);
+  cursor: auto;
+}
