@@ -18,10 +18,10 @@ export default function Donations() {
   }, []);
 
   return (
-    <div className={styles.donations}>
+    <section className={styles.donations}>
       {donations.map((item) => (
         <DonationCard key={item.id} {...item} />
       ))}
-    </div>
+    </section>
   );
 }
