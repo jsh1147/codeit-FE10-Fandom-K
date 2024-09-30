@@ -18,7 +18,7 @@ export default function Modal({ isOpen, onClose }) {
       <div className={styles.modalContent}>
         <section className={styles.modalTitleContainer}>
           <h4 className={styles.modalTitle}>후원하기</h4>
-          <button onClick={handleOnCloseModal}>
+          <button onClick={handleOnCloseModal} className={styles.modalClose}>
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </section>

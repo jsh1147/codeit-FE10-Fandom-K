@@ -38,6 +38,10 @@
   font-weight: 600;
 }
 
+.modalClose {
+  padding: 0;
+}
+
 .contentContainer {
   width: 100%;
   display: flex;
