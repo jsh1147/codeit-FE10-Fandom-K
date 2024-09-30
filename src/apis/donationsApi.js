@@ -1,6 +1,10 @@
 import { BASE_URL } from '../constants/apiConstants';
 
-export async function getdonationList(cursor, pageSize = 10, priorityIdolIds) {
+export async function getDonations(
+  cursor,
+  pageSize = 10,
+  priorityIdolIds = [],
+) {
   let url = `${BASE_URL}/donations?`;
   if (cursor) {
     url += `cursor=${cursor}`;
@@ -10,8 +14,12 @@ export async function getdonationList(cursor, pageSize = 10, priorityIdolIds) {
     url += `&pageSize=${pageSize}`;
   }
 
-  if (priorityIdolIds) {
-    url += `&priorityIdolIds=${priorityIdolIds}`;
+  if (priorityIdolIds && priorityIdolIds.length > 0) {
+    const limitedPriorityIds = priorityIdolIds.slice(0, 5);
+    const priorityIdolQuery = limitedPriorityIds
+      .map((id) => `priorityIdolIds=${id}`)
+      .join('&');
+    url += `&${priorityIdolQuery}`;
   }
 
   try {
