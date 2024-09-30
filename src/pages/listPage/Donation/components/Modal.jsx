@@ -23,7 +23,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
       return;
     }
 
-    setErrorMsg('');
+    setErrorMsg(null);
     setDonatedCredit(0);
     onClose();
   };
@@ -48,7 +48,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     deductCredit(donatedCredit);
-    setErrorMsg('');
+    setErrorMsg(null);
     setDonatedCredit(0);
     toast.success('🌈 후원 완료!');
     onClose();
