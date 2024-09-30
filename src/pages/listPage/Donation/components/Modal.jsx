@@ -24,6 +24,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     setErrorMsg('');
+    setDonatedCredit(0);
     onClose();
   };
 
