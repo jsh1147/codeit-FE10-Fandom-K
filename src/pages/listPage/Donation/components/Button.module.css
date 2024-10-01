@@ -14,3 +14,10 @@
   background: var(--gray-200);
   cursor: auto;
 }
+
+@media (max-width: 767px) {
+  .button {
+    padding: 2px 16px 3px 16px;
+    height: 30px;
+  }
+}
