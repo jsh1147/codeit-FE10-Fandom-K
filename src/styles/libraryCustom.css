@@ -4,16 +4,16 @@
 }
 
 .slick-prev:before {
-  content: url('@/assets/icons/arrow-left.svg');
+  content: url('@/assets/icons/arrow-left-with-bg.svg');
 }
 .slick-next:before {
-  content: url('@/assets/icons/arrow-right.svg');
+  content: url('@/assets/icons/arrow-right-with-bg.svg');
 }
 
 .slick-prev {
-  left: -70px;
+  left: -75px;
 }
 
 .slick-next {
-  right: -30px;
+  right: -40px;
 }
