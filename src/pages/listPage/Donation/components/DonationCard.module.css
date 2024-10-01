@@ -1,0 +1,61 @@
+.donationCard {
+  position: relative;
+}
+
+.idolImgWrapper {
+  position: relative;
+  display: inline-block;
+  width: 282px;
+  height: 293px;
+}
+
+.idolImgWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 58.9%, #000 100%);
+}
+
+.idolImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.buttonWrapper {
+  width: 234px;
+  position: absolute;
+  transform: translate(10%, -170%);
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.subtitle {
+  color: #fff;
+  opacity: 0.4;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.title {
+  margin: 0;
+  color: var(--white-100);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.progressBarWrapper {
+  margin-top: 24px;
+}

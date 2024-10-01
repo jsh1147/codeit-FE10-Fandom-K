@@ -1,0 +1,9 @@
+.donations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  overflow-x: scroll;
+}
