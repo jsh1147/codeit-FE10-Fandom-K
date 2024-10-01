@@ -1,7 +1,7 @@
 import Description from './components/Description';
 import styles from './Descriptions.module.css';
 
-const descriptionData = [
+const descriptionDatas = [
   {
     keyword: '후원하기',
     content: (
@@ -41,7 +41,7 @@ export default function Descriptions() {
   return (
     <section className={styles.section}>
       <div className={styles.guide} aria-hidden="true"></div>
-      {descriptionData.map((data, idx) => (
+      {descriptionDatas.map((data, idx) => (
         <Description
           key={idx}
           idx={idx}
