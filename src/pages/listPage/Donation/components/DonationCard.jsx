@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 import Modal from './Modal';
 
 export default function DonationCard({
-  // id,
+  id,
   // idolId,
   title,
   subtitle,
@@ -48,6 +48,7 @@ export default function DonationCard({
       <Modal
         isOpen={modalOpen}
         onClose={closeModal}
+        id={id}
         title={title}
         subtitle={subtitle}
         idol={idol}
