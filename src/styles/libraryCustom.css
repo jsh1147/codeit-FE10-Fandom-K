@@ -3,19 +3,17 @@
   --toastify-font-family: Pretendard;
 }
 
-@media (max-width: 1199px) {
-  .slick-list {
-    /* width: 4000px; */
-  }
-
-  .slick-slide {
-    /* width: 282px !important; */
-    /* margin-right: 16px; */
-  }
+.slick-prev:before {
+  content: url('@/assets/icons/arrow-left.svg');
 }
-@media (max-width: 767px) {
-  .slick-slide {
-    /* width: 158px !important; */
-    /* margin-right: 8px; */
-  }
+.slick-next:before {
+  content: url('@/assets/icons/arrow-right.svg');
+}
+
+.slick-prev {
+  left: -70px;
+}
+
+.slick-next {
+  right: -30px;
 }
