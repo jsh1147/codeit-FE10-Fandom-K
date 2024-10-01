@@ -30,6 +30,42 @@ export default function Donations() {
       {
         breakpoint: 1199, // Mobile and smaller
         settings: {
+          slidesToShow: 3.7, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 1120, // Mobile and smaller
+        settings: {
+          slidesToShow: 3.5, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 1070, // Mobile and smaller
+        settings: {
+          slidesToShow: 3.3, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 978, // Mobile and smaller
+        settings: {
+          slidesToShow: 3.1, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 930, // Mobile and smaller
+        settings: {
           slidesToShow: 3, // Show 1 card on smaller screens
           slidesToScroll: 3,
           arrows: false, // Disable arrows for responsive views
@@ -37,7 +73,70 @@ export default function Donations() {
         },
       },
       {
+        breakpoint: 910, // Mobile and smaller
+        settings: {
+          slidesToShow: 2.7, // Show 1 card on smaller screens
+          slidesToScroll: 2,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 830, // Mobile and smaller
+        settings: {
+          slidesToShow: 2.4, // Show 1 card on smaller screens
+          slidesToScroll: 2,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
         breakpoint: 767, // Mobile and smaller
+        settings: {
+          slidesToShow: 4.2, // Show 1 card on smaller screens
+          slidesToScroll: 4,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 738, // Mobile and smaller
+        settings: {
+          slidesToShow: 3.5, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 640, // Mobile and smaller
+        settings: {
+          slidesToShow: 3.1, // Show 1 card on smaller screens
+          slidesToScroll: 3,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 550, // Mobile and smaller
+        settings: {
+          slidesToShow: 2.7, // Show 1 card on smaller screens
+          slidesToScroll: 2,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 500, // Mobile and smaller
+        settings: {
+          slidesToShow: 2.2, // Show 1 card on smaller screens
+          slidesToScroll: 2,
+          arrows: false, // Disable arrows for responsive views
+          swipe: true, // Allow swipe scrolling
+        },
+      },
+      {
+        breakpoint: 380, // Mobile and smaller
         settings: {
           slidesToShow: 2, // Show 1 card on smaller screens
           slidesToScroll: 2,

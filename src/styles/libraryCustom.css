@@ -4,12 +4,18 @@
 }
 
 @media (max-width: 1199px) {
+  .slick-list {
+    /* width: 4000px; */
+  }
+
   .slick-slide {
-    width: 282px;
+    /* width: 282px !important; */
+    /* margin-right: 16px; */
   }
 }
 @media (max-width: 767px) {
   .slick-slide {
-    width: auto;
+    /* width: 158px !important; */
+    /* margin-right: 8px; */
   }
 }
