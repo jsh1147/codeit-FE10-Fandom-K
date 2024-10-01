@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { donationsSettings as settings } from '@/constants/carouselConstans';
+import { donationsSettings as settings } from '@/constants/carouselConstants';
 
 import styles from './Donations.module.css';
 // import { getDonations } from '@/apis/donationsApi';
