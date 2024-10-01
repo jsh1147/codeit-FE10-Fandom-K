@@ -1,11 +1,12 @@
 .donationCard {
   position: relative;
+  width: 282px;
 }
 
 .idolImgWrapper {
   position: relative;
   display: inline-block;
-  width: 282px;
+  width: 100%;
   height: 293px;
 }
 
@@ -58,4 +59,31 @@
 
 .progressBarWrapper {
   margin-top: 24px;
+}
+
+@media (max-width: 767px) {
+  .donationCard {
+    width: 158px;
+  }
+
+  .idolImgWrapper {
+    height: 206px;
+  }
+
+  .buttonWrapper {
+    width: 142px;
+    transform: translate(5%, -140%);
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .progressBarWrapper {
+    margin-top: 20px;
+  }
 }

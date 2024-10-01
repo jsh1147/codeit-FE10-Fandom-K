@@ -1,0 +1,15 @@
+:root {
+  --toastify-color-dark: #181d26;
+  --toastify-font-family: Pretendard;
+}
+
+@media (max-width: 1199px) {
+  .slick-slide {
+    width: 282px;
+  }
+}
+@media (max-width: 767px) {
+  .slick-slide {
+    width: auto;
+  }
+}
