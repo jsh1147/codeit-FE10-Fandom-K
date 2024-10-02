@@ -4,8 +4,8 @@ import { donationsSettings as settings } from '@/constants/carouselConstants';
 import DonationCard from './components/DonationCard';
 import FetchError from './components/FetchError';
 import { getDonations } from '@/apis/donationsApi';
-import { useApiFetch } from '../../../hooks/useApiFetch';
-import Spinner from '../../../components/icons/Spinner';
+import { useApiFetch } from '@/hooks/useApiFetch';
+import Spinner from '@/components/icons/Spinner';
 
 export default function Donations() {
   const { data, isLoading, error } = useApiFetch(getDonations, 20);
