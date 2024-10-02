@@ -149,3 +149,7 @@ button {
 button {
   background-color: transparent;
 }
+
+hr {
+  margin: 0;
+}
