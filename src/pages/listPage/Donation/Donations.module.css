@@ -4,13 +4,9 @@
   min-height: 400px;
 }
 
-.spinnersWrapper {
+.spinnerWrapper {
   text-align: center;
   line-height: 400px;
-}
-
-.spinners {
-  width: 80px;
 }
 
 @media (max-width: 767px) {
@@ -18,7 +14,7 @@
     min-height: 300px;
   }
 
-  .spinnersWrapper {
+  .spinnerWrapper {
     line-height: 300px;
   }
 }

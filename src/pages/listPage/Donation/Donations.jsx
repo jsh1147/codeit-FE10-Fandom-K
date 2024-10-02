@@ -5,7 +5,7 @@ import DonationCard from './components/DonationCard';
 import FetchError from './components/FetchError';
 import { getDonations } from '@/apis/donationsApi';
 import { useApiFetch } from '../../../hooks/useApiFetch';
-import Spinners from '../../../components/icons/Spinners';
+import Spinner from '../../../components/icons/Spinner';
 
 export default function Donations() {
   const { data, isLoading, error } = useApiFetch(getDonations, 20);
@@ -14,8 +14,8 @@ export default function Donations() {
   const renderContent = () => {
     if (isLoading) {
       return (
-        <div className={styles.spinnersWrapper}>
-          <Spinners width="80px" height="80px" />
+        <div className={styles.spinnerWrapper}>
+          <Spinner width="80px" height="80px" />
         </div>
       );
     }
