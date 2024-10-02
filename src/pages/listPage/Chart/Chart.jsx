@@ -48,9 +48,10 @@ export default function Chart() {
       </div>
 
       <ol className={styles.list}>
-        {idolList.map((idol, index) => (
-          <IdolCard idol={idol} index={index} key={idol.id} />
-        ))}
+        {idolList &&
+          idolList.map((idol, index) => (
+            <IdolCard idol={idol} index={index} key={idol.id} />
+          ))}
       </ol>
     </section>
   );
