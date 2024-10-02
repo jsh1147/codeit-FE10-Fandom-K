@@ -22,7 +22,7 @@ export const useApiFetch = (fetchFunction, ...args) => {
     };
 
     fetchData();
-  }, [fetchFunction, JSON.stringify(args)]);
+  }, [fetchFunction]);
 
   return { data, isLoading, error };
 };
