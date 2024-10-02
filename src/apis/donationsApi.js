@@ -1,18 +1,14 @@
 import { BASE_URL } from '../constants/apiConstants';
 
 export async function getDonations(
-  cursor,
   pageSize = 10,
+  cursor,
   priorityIdolIds = [],
 ) {
-  let url = `${BASE_URL}/donations?`;
+  let url = `${BASE_URL}/donations?&pageSize=${pageSize}`;
 
   if (cursor) {
     url += `cursor=${cursor}`;
-  }
-
-  if (pageSize) {
-    url += `&pageSize=${pageSize}`;
   }
 
   if (priorityIdolIds && priorityIdolIds.length > 0) {
@@ -34,8 +30,7 @@ export async function getDonations(
     throw new Error(`Error: ${response.status}`);
   }
 
-  const result = await response.json();
-  return result;
+  return await response.json();
 }
 
 export async function proceedDonation(id, amount) {

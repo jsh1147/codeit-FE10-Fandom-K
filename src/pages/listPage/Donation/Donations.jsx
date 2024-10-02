@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -10,29 +9,11 @@ import { getDonations } from '@/apis/donationsApi';
 
 import DonationCard from './components/DonationCard';
 import FetchError from './components/FetchError';
+import { useApiFetch } from '../../../hooks/useApiFetch';
 
 export default function Donations() {
-  const [donations, setDonations] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null); // Error state
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const { list } = await getDonations();
-        setDonations(list);
-        setIsLoading(false);
-        setError(null);
-      } catch (error) {
-        console.error(error);
-        setError('데이터 로딩 실패');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchItems();
-  }, []);
+  const { data, isLoading, error } = useApiFetch(getDonations, 20);
+  const donations = data?.list || [];
 
   return (
     <>
