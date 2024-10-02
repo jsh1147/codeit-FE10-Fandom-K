@@ -1,0 +1,15 @@
+.tab {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-200);
+  line-height: 18px;
+  letter-spacing: -0.165px;
+  padding: 12px;
+  width: 600px;
+}
+
+.tabActive {
+  border-bottom: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
