@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Tab from './components/Tab';
 import IdolCard from './components/IdolCard';
-import getChart from './Api';
+import { getCharts } from '@/apis/chartsApi.js';
 import styles from './Chart.module.css';
 
 export default function Chart() {
@@ -15,9 +15,9 @@ export default function Chart() {
   };
 
   const fetchIdolList = async ({ gender, cursor, pageSize }) => {
-    const idols = await getChart(gender, cursor, pageSize);
-    const sortedIdols = idols.sort((a, b) => b.totalVotes - a.totalVotes);
-    setIdolList(sortedIdols);
+    const data = await getCharts(gender, cursor, pageSize);
+    const idols = data.idols;
+    setIdolList(idols);
   };
 
   useEffect(() => {
