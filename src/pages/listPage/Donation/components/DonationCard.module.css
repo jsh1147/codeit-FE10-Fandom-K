@@ -29,6 +29,7 @@
 
 .buttonWrapper {
   width: 234px;
+  height: 40px;
   position: absolute;
   transform: translate(10%, -170%);
 }
@@ -85,5 +86,9 @@
 
   .progressBarWrapper {
     margin-top: 20px;
+  }
+
+  .buttonWrapper {
+    height: 30px;
   }
 }

@@ -100,7 +100,9 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
               <span className={styles.errorMessage}>{errorMsg}</span>
             )}
           </div>
-          <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
+          <div className={styles.buttonWrapper}>
+            <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
+          </div>
         </form>
       </div>
     </div>,

@@ -112,9 +112,9 @@ export const donationsSettings = {
       },
     },
     {
-      breakpoint: 380,
+      breakpoint: 400,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 2.05,
         slidesToScroll: 2,
         arrows: false,
         swipe: true,
