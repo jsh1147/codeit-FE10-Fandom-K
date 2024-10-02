@@ -9,6 +9,7 @@
 .title {
   font-weight: 700;
   line-height: 26px;
+  font-size: 24px;
 }
 
 .modalButton {
@@ -25,20 +26,14 @@
   letter-spacing: 0.26px;
 }
 
-@media (min-width: 375px) {
-  .title {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 768px) {
+@media (max-width: 1199px) {
   .title {
     font-size: 20px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 767px) {
   .title {
-    font-size: 24px;
+    font-size: 16px;
   }
 }
