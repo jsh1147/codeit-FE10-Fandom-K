@@ -5,14 +5,13 @@
   font-family: 'Pretendard';
 }
 
-<<<<<<< HEAD
 select,
 button {
   cursor: pointer;
-=======
+}
+
 #root {
   min-height: 100vh;
   background: url('../assets/images/background_effect.png') no-repeat left top;
   background-color: var(--black-200);
->>>>>>> develop
 }
