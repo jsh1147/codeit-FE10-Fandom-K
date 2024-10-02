@@ -17,7 +17,7 @@
   padding: 2px 16px 2px 44px;
   border-radius: 3px;
   background:
-    url('../../assets/icons/chart.svg') no-repeat left 16px center,
+    url('@/assets/icons/chart.svg') no-repeat left 16px center,
     linear-gradient(90deg, #f86f65 0%, #fe5493 100%);
   color: white;
   font-weight: 700;
