@@ -11,27 +11,21 @@ export default function Donations() {
   const { data, isLoading, error } = useApiFetch(getDonations, 20);
   const donations = data?.list || [];
 
-  const renderContent = () => {
-    if (isLoading) {
-      return (
+  return (
+    <section className={styles.donations}>
+      {isLoading ? (
         <div className={styles.spinnerWrapper}>
           <Spinner width="80px" height="80px" />
         </div>
-      );
-    }
-
-    if (error) {
-      return <FetchError error={error} />;
-    }
-
-    return (
-      <Slider {...settings}>
-        {donations.map((item) => (
-          <DonationCard key={item.id} {...item} />
-        ))}
-      </Slider>
-    );
-  };
-
-  return <section className={styles.donations}>{renderContent()}</section>;
+      ) : error ? (
+        <FetchError error={error} />
+      ) : (
+        <Slider {...settings}>
+          {donations.map((item) => (
+            <DonationCard key={item.id} {...item} />
+          ))}
+        </Slider>
+      )}
+    </section>
+  );
 }

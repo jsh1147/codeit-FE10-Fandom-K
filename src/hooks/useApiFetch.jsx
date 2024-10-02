@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 export const useApiFetch = (fetchFunction, ...args) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const wrappedFunction = useCallback(
+    async (...args) => {
       setIsLoading(true);
       setError(null);
 
@@ -19,10 +19,13 @@ export const useApiFetch = (fetchFunction, ...args) => {
       } finally {
         setIsLoading(false);
       }
-    };
+    },
+    [fetchFunction],
+  );
 
-    fetchData();
-  }, [fetchFunction]);
+  useEffect(() => {
+    wrappedFunction(...args);
+  }, [wrappedFunction]);
 
   return { data, isLoading, error };
 };
