@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Header from './header';
-import Tab from './Tab';
-import IdolCard from './IdolCard';
+import Header from './components/Header';
+import Tab from './components/Tab';
+import IdolCard from './components/IdolCard';
 import getChart from './Api';
 import styles from './Chart.module.css';
 
