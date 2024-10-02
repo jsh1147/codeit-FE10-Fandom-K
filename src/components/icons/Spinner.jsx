@@ -1,4 +1,4 @@
-export default function Spinners({
+export default function Spinner({
   width = '1em',
   height = '1em',
   fill = '#f96d69',
