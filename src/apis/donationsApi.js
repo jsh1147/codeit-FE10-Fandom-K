@@ -6,6 +6,7 @@ export async function getDonations(
   priorityIdolIds = [],
 ) {
   let url = `${BASE_URL}/donations?`;
+
   if (cursor) {
     url += `cursor=${cursor}`;
   }
@@ -39,5 +40,21 @@ export async function getDonations(
   } catch (error) {
     console.error('후원 목록 불러오기 실패:', error);
     return [];
+  }
+}
+
+export async function proceedDonation(id, amount) {
+  const url = `${BASE_URL}/donations/${id}/contribute`;
+
+  const response = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ amount }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Error: ${response.status}`);
   }
 }

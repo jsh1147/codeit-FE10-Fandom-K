@@ -7,9 +7,10 @@ import { useState } from 'react';
 import { donationsMsg } from '@/constants/errorMessages';
 import { useCredit } from '@/hooks/useCredit';
 import { toast } from 'react-toastify';
+import { proceedDonation } from '@/apis/donationsApi';
 
-export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
-  const [donatedCredit, setDonatedCredit] = useState(0);
+export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
+  const [toDonateCredit, setToDonateCredit] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
   const { credit, deductCredit } = useCredit();
 
@@ -24,7 +25,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     setErrorMsg(null);
-    setDonatedCredit(0);
+    setToDonateCredit(0);
     onClose();
   };
 
@@ -36,22 +37,28 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
     }
 
     setErrorMsg(null);
-    setDonatedCredit(e.target.value);
+    setToDonateCredit(e.target.value);
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    if (credit < donatedCredit) {
+    if (credit < toDonateCredit) {
       setErrorMsg(donationsMsg.creditNotEnough);
       return;
     }
 
-    deductCredit(donatedCredit);
-    setErrorMsg(null);
-    setDonatedCredit(0);
-    toast.success('🌈 후원 완료!');
-    onClose();
+    try {
+      await proceedDonation(id, toDonateCredit);
+      deductCredit(toDonateCredit);
+      setErrorMsg(null);
+      setToDonateCredit(0);
+      toast.success('🌈 후원 완료!');
+      onClose();
+    } catch (error) {
+      console.log(error);
+      toast.error('❌ 후원 요청 실패! 다시 시도해주세요!');
+    }
   };
 
   return ReactDOM.createPortal(
@@ -93,7 +100,7 @@ export default function Modal({ isOpen, onClose, title, subtitle, idol }) {
               <span className={styles.errorMessage}>{errorMsg}</span>
             )}
           </div>
-          <Button text="후원하기" type="submit" disabled={!donatedCredit} />
+          <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
         </form>
       </div>
     </div>,
