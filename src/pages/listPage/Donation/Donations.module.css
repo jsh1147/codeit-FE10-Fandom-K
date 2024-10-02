@@ -1,4 +1,20 @@
 .donations {
   width: 100%;
   max-width: 1200px;
+  min-height: 400px;
+}
+
+.spinnerWrapper {
+  text-align: center;
+  line-height: 400px;
+}
+
+@media (max-width: 767px) {
+  .donations {
+    min-height: 300px;
+  }
+
+  .spinnerWrapper {
+    line-height: 300px;
+  }
 }
