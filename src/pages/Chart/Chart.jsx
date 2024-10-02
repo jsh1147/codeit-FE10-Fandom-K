@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from './header';
-import Button from './Button';
+import Tab from './Tab';
 import IdolCard from './IdolCard';
 import getChart from './Api';
 import styles from './Chart.module.css';
@@ -33,13 +33,13 @@ export default function Chart() {
       <Header />
 
       <div className={styles.tabs}>
-        <Button
+        <Tab
           label="이달의 여자 아이돌"
           status="female"
           activeTab={activeTab}
           onClick={() => handleChangeList('female')}
         />
-        <Button
+        <Tab
           label="이달의 남자 아이돌"
           status="male"
           activeTab={activeTab}

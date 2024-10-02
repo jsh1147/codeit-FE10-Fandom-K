@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
-export default function Button({ label, status, activeTab, onClick }) {
+export default function Tab({ label, status, activeTab, onClick }) {
   const tabStatus = (tab) =>
     classNames({
       [styles.tab]: true,
