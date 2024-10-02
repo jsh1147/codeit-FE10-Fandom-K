@@ -1,46 +1,44 @@
-import { createContext, useEffect, useState, useCallback } from 'react';
+import { createContext, useState } from 'react';
 
 export const CreditContext = createContext(null);
 
 const CREDIT_KEY = 'credit';
 
 export function CreditProvider({ children }) {
-  const [credit, setCredit] = useState(0);
-
-  const getStoredCredit = useCallback(() => {
-    return Number(localStorage.getItem(CREDIT_KEY));
-  }, []);
-
-  const updateCreditStorage = useCallback(
-    (value) => {
-      const currentCredit = getStoredCredit();
-      localStorage.setItem(CREDIT_KEY, currentCredit + value);
-    },
-    [getStoredCredit],
+  const [credit, setCredit] = useState(
+    Number(localStorage.getItem(CREDIT_KEY)) || 0,
   );
 
-  const updateCredit = useCallback(
-    (value) => {
-      const addedCredit = Number(value);
+  const updateCredit = (value, operation) => {
+    if (isNaN(Number(value))) {
+      throw new Error(`크레딧 값이 잘못되었습니다. 입력값: ${value}`);
+    }
 
-      if (!addedCredit) {
-        throw new Error(
-          `업데이트할 크레딧 값이 잘못되었습니다. 입력값: ${value}`,
-        );
-      }
+    setCredit((prev) => {
+      const credit = operation === 'add' ? prev + value : prev - value;
+      localStorage.setItem(CREDIT_KEY, credit);
 
-      setCredit((prev) => prev + addedCredit);
-      updateCreditStorage(addedCredit);
-    },
-    [updateCreditStorage],
-  );
+      return credit;
+    });
+  };
 
-  useEffect(() => {
-    setCredit(getStoredCredit());
-  }, [getStoredCredit]);
+  const addCredit = (value) => updateCredit(value, 'add');
+  const deductCredit = (value) => updateCredit(value, 'deduct');
+
+  const resetCredit = () => {
+    localStorage.removeItem(CREDIT_KEY);
+    setCredit(0);
+  };
 
   return (
-    <CreditContext.Provider value={{ credit, updateCredit }}>
+    <CreditContext.Provider
+      value={{
+        credit,
+        addCredit,
+        deductCredit,
+        resetCredit,
+      }}
+    >
       {children}
     </CreditContext.Provider>
   );
