@@ -1,8 +1,8 @@
 .chart {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  flex-shrink: 0;
+
+  width: 100%;
 }
 
 .tabs {
@@ -19,14 +19,14 @@
 
 @media (min-width: 375px) {
   .chart {
-    max-width: 327px;
+    min-width: 327px;
     gap: 16px;
   }
 }
 
 @media (min-width: 768px) {
   .chart {
-    max-width: 700px;
+    min-width: 700px;
     gap: 24px;
   }
 }
