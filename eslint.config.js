@@ -35,6 +35,7 @@ export default [
         { allowConstantExport: true },
       ],
       'react/prop-types': 'off',
+      'no-used-vars': 'off',
     },
   },
   eslintConfigPrettier,

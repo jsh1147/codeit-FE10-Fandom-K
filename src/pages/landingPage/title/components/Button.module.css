@@ -1,0 +1,13 @@
+.color {
+  background: linear-gradient(
+    90deg,
+    var(--orange-primary) 0%,
+    var(--pink-accent) 100%
+  );
+  color: white;
+}
+
+.disabled {
+  background: var(--gray-200);
+  cursor: auto;
+}
