@@ -1,0 +1,42 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+@media (min-width: 375px) {
+  .chart {
+    max-width: 327px;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .chart {
+    max-width: 700px;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .chart {
+    max-width: 1200px;
+  }
+
+  .list {
+    gap: 8px 24px;
+  }
+}
