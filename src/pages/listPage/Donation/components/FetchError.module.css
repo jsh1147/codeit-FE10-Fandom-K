@@ -1,0 +1,29 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.errorTitle {
+  font-size: 24px;
+}
+
+.keyword {
+  color: var(--orange-primary);
+  font-weight: bold;
+}
+
+.creditIcon {
+  width: 150px;
+}
+
+.reloadButtonWrapper {
+  height: 40px;
+}
+
+@media (max-width: 767px) {
+  .reloadButtonWrapper {
+    height: 30px;
+  }
+}

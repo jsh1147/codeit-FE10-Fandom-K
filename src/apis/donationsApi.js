@@ -23,24 +23,19 @@ export async function getDonations(
     url += `&${priorityIdolQuery}`;
   }
 
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
-
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error('후원 목록 불러오기 실패:', error);
-    return [];
+  if (!response.ok) {
+    throw new Error(`Error: ${response.status}`);
   }
+
+  const result = await response.json();
+  return result;
 }
 
 export async function proceedDonation(id, amount) {
