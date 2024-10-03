@@ -3,7 +3,7 @@ import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
 import creditIcon from '@/assets/icons/credit.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { donationsMsg } from '@/constants/errorMessages';
 import { useCredit } from '@/hooks/useCredit';
 import { toast } from 'react-toastify';
@@ -13,6 +13,17 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
   const [toDonateCredit, setToDonateCredit] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
   const { credit, deductCredit } = useCredit();
+
+  useEffect(() => {
+    const escKeyModalClose = () => {
+      setErrorMsg(null);
+      setToDonateCredit(0);
+      onClose();
+    };
+
+    window.addEventListener('keydown', escKeyModalClose);
+    return () => window.removeEventListener('keydown', escKeyModalClose);
+  }, [onClose]);
 
   if (!isOpen) return null;
 
