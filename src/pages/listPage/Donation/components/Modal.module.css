@@ -13,7 +13,6 @@
 }
 
 .modalContent {
-  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -97,6 +96,7 @@
   background: #272f3d;
   padding: 16px;
   display: flex;
+  gap: 8px;
 }
 
 .error {
@@ -112,6 +112,7 @@
 }
 
 .creditInput {
+  width: 100%;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -143,5 +144,11 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .modalContent {
+    max-width: 360px;
   }
 }
