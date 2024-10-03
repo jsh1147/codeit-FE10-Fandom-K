@@ -20,11 +20,11 @@ export default function TopUpModal({ onClose }) {
 
   return (
     <Modal title="크레딧 충전하기" onClose={onClose}>
-      <form className={styles}>
+      <form className={styles.form}>
         {[100, 500, 1000].map((value, idx) => (
           <Fragment key={idx}>
             <input
-              className={styles}
+              className={styles.radio}
               name="topup"
               id={`radio-${idx}`}
               type="radio"
@@ -32,13 +32,16 @@ export default function TopUpModal({ onClose }) {
               value={value}
               checked={value === amount}
             />
-            <label className={styles} htmlFor={`radio-${idx}`}>
+            <label
+              className={`${styles.label} ${value === amount ? styles.labelChecked : ''}`}
+              htmlFor={`radio-${idx}`}
+            >
               {value}
             </label>
           </Fragment>
         ))}
         <Button
-          className={styles}
+          className={styles.button}
           onClick={handleButtonClick}
           content="충전하기"
         />
