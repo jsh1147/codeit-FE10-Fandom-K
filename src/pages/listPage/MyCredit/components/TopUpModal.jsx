@@ -1,0 +1,48 @@
+import { useState, Fragment } from 'react';
+import { useCredit } from '@/hooks/useCredit';
+import Modal from './Modal';
+import Button from '@/pages/landingPage/title/components/Button';
+import styles from './TopUpModal.module.css';
+
+export default function TopUpModal({ onClose }) {
+  const [amount, setAmount] = useState(100);
+  const { addCredit } = useCredit();
+
+  const handleRadioChange = (e) => {
+    setAmount(Number(e.target.value));
+  };
+
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    addCredit(amount);
+    onClose();
+  };
+
+  return (
+    <Modal title="크레딧 충전하기" onClose={onClose}>
+      <form className={styles}>
+        {[100, 500, 1000].map((value, idx) => (
+          <Fragment key={idx}>
+            <input
+              className={styles}
+              name="topup"
+              id={`radio-${idx}`}
+              type="radio"
+              onChange={handleRadioChange}
+              value={value}
+              checked={value === amount}
+            />
+            <label className={styles} htmlFor={`radio-${idx}`}>
+              {value}
+            </label>
+          </Fragment>
+        ))}
+        <Button
+          className={styles}
+          onClick={handleButtonClick}
+          content="충전하기"
+        />
+      </form>
+    </Modal>
+  );
+}
