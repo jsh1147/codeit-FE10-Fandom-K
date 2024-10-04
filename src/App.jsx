@@ -7,6 +7,7 @@ export default function App() {
     <CreditProvider>
       <Router />
       <ToastContainer autoClose={1500} closeButton={false} theme="dark" />
+      <div id="modal-root"></div>
     </CreditProvider>
   );
 }
