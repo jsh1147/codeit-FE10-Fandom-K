@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
 import creditIcon from '@/assets/icons/credit.svg';
 import { useState, useEffect } from 'react';
-import { donationsMsg } from '@/constants/errorMessages';
 import { useCredit } from '@/hooks/useCredit';
 import { toast } from 'react-toastify';
 import { proceedDonation } from '@/apis/donationsApi';
+import { donationsErrorMsg } from '@/constants/errorMessages';
+import { donationsMsg } from '@/constants/successMessages';
 
 export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
   const [toDonateCredit, setToDonateCredit] = useState(0);
@@ -45,7 +46,7 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
   const handleCreditOnChange = (e) => {
     if (isNaN(Number(e.target.value))) {
       e.target.value = '';
-      setErrorMsg(donationsMsg.onlyNumber);
+      setErrorMsg(donationsErrorMsg.onlyNumber);
       return;
     }
 
@@ -57,7 +58,7 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
     e.preventDefault();
 
     if (credit < toDonateCredit) {
-      setErrorMsg(donationsMsg.creditNotEnough);
+      setErrorMsg(donationsErrorMsg.creditNotEnough);
       return;
     }
 
@@ -66,11 +67,11 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
       deductCredit(toDonateCredit);
       setErrorMsg(null);
       setToDonateCredit(0);
-      toast.success('🌈 후원 완료!');
+      toast.success(donationsMsg.apiCallSuccess);
       onClose();
     } catch (error) {
       console.log(error);
-      toast.error('❌ 후원 요청 실패! 다시 시도해주세요!');
+      toast.error(donationsErrorMsg.apiCallFailure);
     }
   };
 
