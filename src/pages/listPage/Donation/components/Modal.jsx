@@ -15,10 +15,12 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
   const { credit, deductCredit } = useCredit();
 
   useEffect(() => {
-    const escKeyModalClose = () => {
-      setErrorMsg(null);
-      setToDonateCredit(0);
-      onClose();
+    const escKeyModalClose = (e) => {
+      if (e.key === 'Escape') {
+        setErrorMsg(null);
+        setToDonateCredit(0);
+        onClose();
+      }
     };
 
     window.addEventListener('keydown', escKeyModalClose);
