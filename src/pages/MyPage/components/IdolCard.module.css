@@ -1,0 +1,73 @@
+.IdolCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cardImgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 1px solid #f77063;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.cardImg {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+  border: none;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.group {
+  font-size: 12px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.selected .cardImgWrapper {
+  background: linear-gradient(180deg, #f96e68 0%, #fe578f 100%);
+  border: none;
+  padding: 5px;
+}
+
+.selected .cardImg {
+  opacity: 0.7;
+}
+
+.selected .image {
+  opacity: 0.7;
+}
+
+.checkIcon {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  z-index: 2;
+}

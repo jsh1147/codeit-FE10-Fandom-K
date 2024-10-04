@@ -9,6 +9,7 @@ import LandingPage from './pages/landingPage/LandingPage';
 import Layout from './components/layout/Layout';
 import ListPage from './pages/listPage/ListPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import MyPage from './pages/MyPage/MyPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +17,7 @@ const router = createBrowserRouter(
       <Route index element={<LandingPage />} />
       <Route element={<Layout />}>
         <Route path="list" element={<ListPage />} />
-        <Route path="mypage" element={<h1>My Page</h1>} />
+        <Route path="mypage" element={<MyPage />} />
         <Route path="creditTest" element={<CreditTestPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
