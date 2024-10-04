@@ -8,7 +8,6 @@ import styles from './Chart.module.css';
 export default function Chart() {
   const [activeTab, setActiveTab] = useState('female');
   const [idolList, setIdolList] = useState([]);
-  const pageSize = 10;
 
   const handleChangeList = (tab) => {
     setActiveTab(tab);
@@ -24,9 +23,8 @@ export default function Chart() {
     fetchIdolList({
       gender: activeTab,
       cursor: null,
-      pageSize,
     });
-  }, [activeTab, pageSize]);
+  }, [activeTab]);
 
   return (
     <section className={styles.chart}>
