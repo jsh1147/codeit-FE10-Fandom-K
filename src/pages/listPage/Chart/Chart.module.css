@@ -1,9 +1,17 @@
 .chart {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 51px;
   width: 100%;
   max-width: 1200px;
   margin-top: 80px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   gap: 24px;
 }
 
