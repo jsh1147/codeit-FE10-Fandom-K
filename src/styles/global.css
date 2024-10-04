@@ -12,7 +12,12 @@ button {
 
 #root {
   min-height: 100vh;
-  width: 100vw;
-  background: url('../assets/images/background_effect.png') no-repeat left top;
+  background: radial-gradient(
+      farthest-corner at 0 0,
+      #14c4fe77 0,
+      var(--black-200) 150px
+    )
+    no-repeat left top / 150px 240px;
   background-color: var(--black-200);
+  background-attachment: fixed;
 }
