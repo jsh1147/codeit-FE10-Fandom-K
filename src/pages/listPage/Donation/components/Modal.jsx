@@ -7,6 +7,7 @@ export default function Modal({
   isOpen,
   onClose,
   allowDimClose = true,
+  title,
   children,
 }) {
   useEffect(() => {
@@ -35,15 +36,19 @@ export default function Modal({
   };
 
   return ReactDOM.createPortal(
-    <div className={styles.modalBackground} onClick={handleOnCloseModal}>
-      <div className={styles.modalContainer}>
-        <div className={styles.modalTitleContainer}>
-          <h4 className={styles.modalTitle}>후원하기</h4>
-          <button onClick={onClose} className={styles.modalClose}>
+    <div className={styles.background} onClick={handleOnCloseModal}>
+      <div className={styles.container}>
+        <div className={styles.titleContainer}>
+          {title && <h4 className={styles.title}>{title}</h4>}
+          <button
+            onClick={onClose}
+            className={styles.close}
+            aria-label="모달 닫기"
+          >
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
-        <div>{children}</div>
+        <div className={styles.contentContainer}>{children}</div>
       </div>
     </div>,
     document.getElementById('modal-root'),

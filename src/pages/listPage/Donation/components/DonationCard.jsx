@@ -49,7 +49,7 @@ export default function DonationCard({
           deadline={deadline}
         />
       </div>
-      <Modal isOpen={isOpen} onClose={handleCloseModal}>
+      <Modal isOpen={isOpen} onClose={handleCloseModal} title="후원하기">
         <DonationModalContent
           id={id}
           title={title}

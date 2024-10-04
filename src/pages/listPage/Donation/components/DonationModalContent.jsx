@@ -57,7 +57,6 @@ export default function DonationModalContent({
 
   return (
     <>
-      {' '}
       <section className={styles.contentContainer}>
         <div className={styles.contentWrapper}>
           <img
