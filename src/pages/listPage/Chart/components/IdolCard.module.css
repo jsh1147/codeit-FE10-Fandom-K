@@ -11,8 +11,7 @@
   width: 100%;
 }
 
-.item:nth-child(9) > .divide,
-.item:nth-child(10) > .divide {
+.item:last-child > .divide {
   display: none;
 }
 
@@ -75,10 +74,6 @@
   .item {
     width: 100%;
     max-width: 100%;
-  }
-
-  .item:nth-child(9) > .divide {
-    display: block;
   }
 
   .ranking {
