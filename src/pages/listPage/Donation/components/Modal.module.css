@@ -9,6 +9,10 @@
   animation: fadeIn 0.5s ease forwards;
 }
 
+.background.fadeOut {
+  animation: fadeOut 0.5s ease forwards;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -19,6 +23,10 @@
   padding: 24px 16px 32px 16px;
   transform: translateY(-50px);
   animation: slideIn 0.5s ease forwards;
+}
+
+.container.slideOut {
+  animation: slideOut 0.5s ease forwards;
 }
 
 .titleContainer {
@@ -56,5 +64,25 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
   }
 }

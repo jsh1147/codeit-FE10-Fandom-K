@@ -1,7 +1,7 @@
 import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Modal({
   isOpen,
@@ -10,6 +10,8 @@ export default function Modal({
   title,
   children,
 }) {
+  const [isClosing, setIsClosing] = useState(false);
+
   useEffect(() => {
     const escKeyModalClose = (e) => {
       if (e.key === 'Escape') {
@@ -21,9 +23,18 @@ export default function Modal({
     return () => window.removeEventListener('keydown', escKeyModalClose);
   }, [onClose]);
 
+  // 모달이 닫힐 때 애니메이션 동작을 위해 추가
+  const handleOnClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 300);
+  };
+
   if (!isOpen) return null;
 
-  const handleOnCloseModal = (e) => {
+  const handleOnClickBackground = (e) => {
     if (
       !allowDimClose ||
       (e.currentTarget.tagName.toLowerCase() === 'div' &&
@@ -32,16 +43,21 @@ export default function Modal({
       return;
     }
 
-    onClose();
+    handleOnClose();
   };
 
   return ReactDOM.createPortal(
-    <div className={styles.background} onClick={handleOnCloseModal}>
-      <div className={styles.container}>
+    <div
+      className={`${styles.background} ${isClosing ? styles.fadeOut : ''}`}
+      onClick={handleOnClickBackground}
+    >
+      <div
+        className={`${styles.container} ${isClosing ? styles.slideOut : ''}`}
+      >
         <div className={styles.titleContainer}>
           {title && <h4 className={styles.title}>{title}</h4>}
           <button
-            onClick={onClose}
+            onClick={handleOnClose}
             className={styles.close}
             aria-label="모달 닫기"
           >
