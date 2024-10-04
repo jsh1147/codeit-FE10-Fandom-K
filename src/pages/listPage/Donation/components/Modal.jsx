@@ -34,11 +34,7 @@ export default function Modal({
   };
 
   const handleOnClickBackground = (e) => {
-    if (
-      !allowDimClose ||
-      (e.currentTarget.tagName.toLowerCase() === 'div' &&
-        !(e.target === e.currentTarget))
-    ) {
+    if (!allowDimClose || !(e.target === e.currentTarget)) {
       return;
     }
 
