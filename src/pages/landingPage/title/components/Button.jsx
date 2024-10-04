@@ -4,8 +4,8 @@ export default function Button({
   className,
   type = 'submit',
   onClick,
-  content,
   disabled,
+  children,
 }) {
   return (
     <button
@@ -14,7 +14,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
     >
-      {content}
+      {children}
     </button>
   );
 }

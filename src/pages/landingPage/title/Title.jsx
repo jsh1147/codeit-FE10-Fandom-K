@@ -27,8 +27,9 @@ export default function Title() {
         className={styles.button}
         type="button"
         onClick={handleButtonClick}
-        content="지금 시작하기"
-      />
+      >
+        지금 시작하기
+      </Button>
     </section>
   );
 }
