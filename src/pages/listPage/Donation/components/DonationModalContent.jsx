@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { proceedDonation } from '@/apis/donationsApi';
 import { useCredit } from '@/hooks/useCredit';
 import Button from './Button';
-import { useEffect, useRef } from 'react';
 
 const ONLY_NUMBER = '숫자만 입력이 가능해요';
 const CREDIT_NOT_ENOUGH = '갖고 있는 크레딧보다 더 많이 후원할 수 없어요';
@@ -23,7 +22,6 @@ export default function DonationModalContent({
   onClose,
 }) {
   const { credit, deductCredit } = useCredit();
-  const focusRef = useRef(null);
 
   const handleCreditOnChange = (e) => {
     if (isNaN(Number(e.target.value))) {
@@ -57,10 +55,6 @@ export default function DonationModalContent({
     }
   };
 
-  useEffect(() => {
-    focusRef.current.focus();
-  }, [focusRef]);
-
   return (
     <>
       <section className={styles.contentContainer}>
@@ -86,7 +80,6 @@ export default function DonationModalContent({
               type="text"
               placeholder="크레딧 입력"
               onChange={handleCreditOnChange}
-              ref={focusRef}
             />
             <img src={creditIcon} alt="크레딧 아이콘" />
           </div>

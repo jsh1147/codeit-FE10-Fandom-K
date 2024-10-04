@@ -2,6 +2,7 @@ import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
 import { useEffect, useState } from 'react';
+import useModalFocusTrap from '../hooks/useModalFocusTrap';
 
 export default function Modal({
   isOpen,
@@ -11,6 +12,7 @@ export default function Modal({
   children,
 }) {
   const [isClosing, setIsClosing] = useState(false);
+  const { modalRef } = useModalFocusTrap(isOpen);
 
   useEffect(() => {
     const escKeyModalClose = (e) => {
@@ -64,7 +66,9 @@ export default function Modal({
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
-        <div className={styles.contentContainer}>{children}</div>
+        <div className={styles.contentContainer} ref={modalRef}>
+          {children}
+        </div>
       </div>
     </div>,
     document.getElementById('modal-root'),
