@@ -1,10 +1,7 @@
 .modalBackground {
   z-index: 999;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
@@ -12,7 +9,7 @@
   animation: fadeIn 0.5s ease forwards;
 }
 
-.modalContent {
+.modalContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -59,11 +56,5 @@
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@media (max-width: 767px) {
-  .modalContent {
-    max-width: 360px;
   }
 }

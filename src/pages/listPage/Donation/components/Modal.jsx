@@ -40,7 +40,7 @@ export default function Modal({
 
   return ReactDOM.createPortal(
     <div className={styles.modalBackground} onClick={handleOnCloseModal}>
-      <div className={styles.modalContent}>
+      <div className={styles.modalContainer}>
         <div className={styles.modalTitleContainer}>
           <h4 className={styles.modalTitle}>후원하기</h4>
           <button onClick={handleOnCloseModal} className={styles.modalClose}>
