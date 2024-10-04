@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Header from './components/Header';
+import Title from './components/Title';
 import Tab from './components/Tab';
 import IdolCard from './components/IdolCard';
 import { getCharts } from '@/apis/chartsApi.js';
@@ -28,7 +28,7 @@ export default function Chart() {
 
   return (
     <section className={styles.chart}>
-      <Header />
+      <Title />
 
       <div className={styles.tabs}>
         <Tab

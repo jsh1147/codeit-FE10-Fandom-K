@@ -1,6 +1,6 @@
-import styles from './Header.module.css';
+import styles from './Title.module.css';
 
-export default function Header() {
+export default function Title() {
   return (
     <div className={styles.header}>
       <h2 className={styles.title}>이달의 차트</h2>
