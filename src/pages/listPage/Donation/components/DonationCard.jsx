@@ -59,7 +59,7 @@ export default function DonationCard({
           setErrorMsg={setErrorMsg}
           toDonateCredit={toDonateCredit}
           setToDonateCredit={setToDonateCredit}
-          onClose={closeModal}
+          onClose={handleCloseModal}
         />
       </Modal>
     </div>
