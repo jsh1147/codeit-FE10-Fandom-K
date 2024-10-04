@@ -78,46 +78,52 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
   return ReactDOM.createPortal(
     <div className={styles.modalBackground} onClick={handleOnCloseModal}>
       <div className={styles.modalContent}>
-        <section className={styles.modalTitleContainer}>
+        <div className={styles.modalTitleContainer}>
           <h4 className={styles.modalTitle}>후원하기</h4>
           <button onClick={handleOnCloseModal} className={styles.modalClose}>
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
-        </section>
-        <section className={styles.contentContainer}>
-          <div className={styles.contentWrapper}>
-            <img
-              src={idol.profilePicture}
-              alt={idol.name}
-              className={styles.idolImg}
-            />
-            <div className={styles.titleWrapper}>
-              <span className={styles.subtitle}>{subtitle}</span>
-              <h4 className={styles.title}>{title}</h4>
-            </div>
-          </div>
-        </section>
-        <form className={styles.creditContainer} onSubmit={handleOnSubmit}>
-          <div>
-            <div
-              className={`${styles.creditInputWrapper} ${errorMsg ? styles.error : ''}`}
-            >
-              <input
-                className={styles.creditInput}
-                type="text"
-                placeholder="크레딧 입력"
-                onChange={handleCreditOnChange}
+        </div>
+        <div>
+          <section className={styles.contentContainer}>
+            <div className={styles.contentWrapper}>
+              <img
+                src={idol.profilePicture}
+                alt={idol.name}
+                className={styles.idolImg}
               />
-              <img src={creditIcon} alt="크레딧 아이콘" />
+              <div className={styles.titleWrapper}>
+                <span className={styles.subtitle}>{subtitle}</span>
+                <h4 className={styles.title}>{title}</h4>
+              </div>
             </div>
-            {errorMsg && (
-              <span className={styles.errorMessage}>{errorMsg}</span>
-            )}
-          </div>
-          <div className={styles.buttonWrapper}>
-            <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
-          </div>
-        </form>
+          </section>
+          <form className={styles.creditContainer} onSubmit={handleOnSubmit}>
+            <div>
+              <div
+                className={`${styles.creditInputWrapper} ${errorMsg ? styles.error : ''}`}
+              >
+                <input
+                  className={styles.creditInput}
+                  type="text"
+                  placeholder="크레딧 입력"
+                  onChange={handleCreditOnChange}
+                />
+                <img src={creditIcon} alt="크레딧 아이콘" />
+              </div>
+              {errorMsg && (
+                <span className={styles.errorMessage}>{errorMsg}</span>
+              )}
+            </div>
+            <div className={styles.buttonWrapper}>
+              <Button
+                text="후원하기"
+                type="submit"
+                disabled={!toDonateCredit}
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>,
     document.getElementById('modal-root'),

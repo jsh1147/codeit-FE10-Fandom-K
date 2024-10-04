@@ -85,6 +85,7 @@
 
 .creditContainer {
   width: 100%;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
