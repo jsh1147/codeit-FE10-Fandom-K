@@ -44,11 +44,13 @@ export default function DonationModalContent({
 
     try {
       await proceedDonation(id, toDonateCredit);
+
       deductCredit(toDonateCredit);
       setErrorMsg(null);
       setToDonateCredit(0);
-      toast.success(DONATION_SUCCESS);
       onClose();
+
+      toast.success(DONATION_SUCCESS);
     } catch (error) {
       console.log(error);
       toast.error(DONATION_FAILURE);
