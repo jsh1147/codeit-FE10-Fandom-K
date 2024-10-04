@@ -2,8 +2,8 @@ import styles from './IdolCard.module.css';
 
 export default function IdolCard({ idol, index }) {
   return (
-    <div className={styles.itemWrap}>
-      <li className={styles.item}>
+    <li className={styles.item}>
+      <div className={styles.content}>
         <div className={styles.info}>
           <div className={styles.point}>
             <img
@@ -19,9 +19,9 @@ export default function IdolCard({ idol, index }) {
         </div>
 
         <div className={styles.votes}>{idol.totalVotes}표</div>
-      </li>
+      </div>
 
       <hr className={styles.divide} />
-    </div>
+    </li>
   );
 }
