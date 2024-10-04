@@ -1,14 +1,15 @@
 import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-import DonationModalContent from './DonationModalContent';
-
-export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
-  const [toDonateCredit, setToDonateCredit] = useState(0);
-  const [errorMsg, setErrorMsg] = useState('');
-
+export default function Modal({
+  isOpen,
+  onClose,
+  setErrorMsg,
+  setToDonateCredit,
+  children,
+}) {
   useEffect(() => {
     const escKeyModalClose = (e) => {
       if (e.key === 'Escape') {
@@ -20,7 +21,7 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
 
     window.addEventListener('keydown', escKeyModalClose);
     return () => window.removeEventListener('keydown', escKeyModalClose);
-  }, [onClose]);
+  }, [onClose, setErrorMsg, setToDonateCredit]);
 
   if (!isOpen) return null;
 
@@ -46,19 +47,7 @@ export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
-        <div>
-          <DonationModalContent
-            id={id}
-            title={title}
-            subtitle={subtitle}
-            idol={idol}
-            errorMsg={errorMsg}
-            setErrorMsg={setErrorMsg}
-            toDonateCredit={toDonateCredit}
-            setToDonateCredit={setToDonateCredit}
-            onClose={onClose}
-          />
-        </div>
+        <div>{children}</div>
       </div>
     </div>,
     document.getElementById('modal-root'),

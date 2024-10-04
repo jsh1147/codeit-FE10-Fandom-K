@@ -3,10 +3,10 @@ import Button from './Button';
 import styles from './DonationCard.module.css';
 import ProgressBar from './ProgressBar';
 import Modal from './Modal';
+import DonationModalContent from './DonationModalContent';
 
 export default function DonationCard({
   id,
-  // idolId,
   title,
   subtitle,
   targetDonation,
@@ -23,6 +23,9 @@ export default function DonationCard({
     setModalOpen(false);
     document.body.style.overflow = 'unset';
   };
+
+  const [toDonateCredit, setToDonateCredit] = useState(0);
+  const [errorMsg, setErrorMsg] = useState('');
 
   return (
     <div className={styles.donationCard}>
@@ -50,11 +53,21 @@ export default function DonationCard({
       <Modal
         isOpen={modalOpen}
         onClose={closeModal}
-        id={id}
-        title={title}
-        subtitle={subtitle}
-        idol={idol}
-      />
+        setErrorMsg={setErrorMsg}
+        setToDonateCredit={setToDonateCredit}
+      >
+        <DonationModalContent
+          id={id}
+          title={title}
+          subtitle={subtitle}
+          idol={idol}
+          errorMsg={errorMsg}
+          setErrorMsg={setErrorMsg}
+          toDonateCredit={toDonateCredit}
+          setToDonateCredit={setToDonateCredit}
+          onClose={closeModal}
+        />
+      </Modal>
     </div>
   );
 }
