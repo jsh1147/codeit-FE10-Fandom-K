@@ -1,29 +1,31 @@
-import { useEffect, useState } from 'react';
-
 import styles from './Donations.module.css';
-// import { getDonations } from '@/apis/donationsApi';
-import { getDonations } from '@/apis/donationsMockApi';
-
+import Slider from 'react-slick';
+import { donationsSettings as settings } from '@/constants/carouselConstants';
 import DonationCard from './components/DonationCard';
+import FetchError from './components/FetchError';
+import { getDonations } from '@/apis/donationsApi';
+import { useApiFetch } from '@/hooks/useApiFetch';
+import Spinner from '@/components/icons/Spinner';
 
 export default function Donations() {
-  const [donations, setDonations] = useState([]);
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      // const { list } = await getDonations();
-      const { list } = await getDonations({});
-      setDonations(list);
-    };
-
-    fetchItems();
-  }, []);
+  const { data, isLoading, error } = useApiFetch(getDonations, 20);
+  const donations = data?.list || [];
 
   return (
     <section className={styles.donations}>
-      {donations.map((item) => (
-        <DonationCard key={item.id} {...item} />
-      ))}
+      {isLoading ? (
+        <div className={styles.spinnerWrapper}>
+          <Spinner width="80px" height="80px" />
+        </div>
+      ) : error ? (
+        <FetchError error={error} />
+      ) : (
+        <Slider {...settings}>
+          {donations.map((item) => (
+            <DonationCard key={item.id} {...item} />
+          ))}
+        </Slider>
+      )}
     </section>
   );
 }

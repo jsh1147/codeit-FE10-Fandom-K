@@ -13,6 +13,7 @@
 }
 
 .modalContent {
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -84,6 +85,7 @@
 }
 
 .creditContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -95,8 +97,6 @@
   background: #272f3d;
   padding: 16px;
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
 }
 
 .error {
@@ -112,7 +112,6 @@
 }
 
 .creditInput {
-  flex: 1;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -121,6 +120,10 @@
 
 .creditInput::placeholder {
   color: var(--gray-300);
+}
+
+.buttonWrapper {
+  height: 40px;
 }
 
 @keyframes fadeIn {
