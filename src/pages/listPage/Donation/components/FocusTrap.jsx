@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-export default function useModalFocusTrap() {
-  const modalRef = useRef(null);
+export default function FocusTrap({ children }) {
+  const startRef = useRef(null);
 
   useEffect(() => {
-    const focusableElements = modalRef.current.querySelectorAll(
+    const focusableElements = startRef.current.querySelectorAll(
       'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])',
     );
     const firstElement = focusableElements[0];
@@ -37,5 +37,5 @@ export default function useModalFocusTrap() {
     };
   }, []);
 
-  return { modalRef };
+  return <div ref={startRef}>{children}</div>;
 }
