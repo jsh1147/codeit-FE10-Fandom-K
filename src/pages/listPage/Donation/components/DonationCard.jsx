@@ -3,10 +3,11 @@ import Button from './Button';
 import styles from './DonationCard.module.css';
 import ProgressBar from './ProgressBar';
 import Modal from './Modal';
+import DonationModalContent from './DonationModalContent';
+import useModal from '../hooks/useModal';
 
 export default function DonationCard({
   id,
-  // idolId,
   title,
   subtitle,
   targetDonation,
@@ -14,12 +15,15 @@ export default function DonationCard({
   deadline,
   idol,
 }) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
+  const [toDonateCredit, setToDonateCredit] = useState(0);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const { isOpen, openModal, closeModal } = useModal();
+
+  const handleCloseModal = () => {
+    setErrorMsg(null);
+    setToDonateCredit(0);
+    closeModal();
   };
 
   return (
@@ -45,14 +49,21 @@ export default function DonationCard({
           deadline={deadline}
         />
       </div>
-      <Modal
-        isOpen={modalOpen}
-        onClose={closeModal}
-        id={id}
-        title={title}
-        subtitle={subtitle}
-        idol={idol}
-      />
+      {isOpen && (
+        <Modal onClose={handleCloseModal} title="후원하기">
+          <DonationModalContent
+            id={id}
+            title={title}
+            subtitle={subtitle}
+            idol={idol}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            toDonateCredit={toDonateCredit}
+            setToDonateCredit={setToDonateCredit}
+            onClose={handleCloseModal}
+          />
+        </Modal>
+      )}
     </div>
   );
 }

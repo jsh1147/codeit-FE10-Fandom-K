@@ -1,109 +1,67 @@
-import Button from './Button';
 import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
-import creditIcon from '@/assets/icons/credit.svg';
-import { useState } from 'react';
-import { donationsMsg } from '@/constants/errorMessages';
-import { useCredit } from '@/hooks/useCredit';
-import { toast } from 'react-toastify';
-import { proceedDonation } from '@/apis/donationsApi';
+import { useEffect, useState } from 'react';
+import useModalFocusTrap from '../hooks/useModalFocusTrap';
 
-export default function Modal({ isOpen, onClose, id, title, subtitle, idol }) {
-  const [toDonateCredit, setToDonateCredit] = useState(0);
-  const [errorMsg, setErrorMsg] = useState('');
-  const { credit, deductCredit } = useCredit();
+export default function Modal({
+  onClose,
+  allowDimClose = true,
+  title,
+  children,
+}) {
+  const [isClosing, setIsClosing] = useState(false);
+  const { modalRef } = useModalFocusTrap();
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    const escKeyModalClose = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
 
-  const handleOnCloseModal = (e) => {
-    if (
-      e.currentTarget.tagName.toLowerCase() === 'div' &&
-      !(e.target === e.currentTarget)
-    ) {
-      return;
-    }
+    window.addEventListener('keydown', escKeyModalClose);
+    return () => window.removeEventListener('keydown', escKeyModalClose);
+  }, [onClose]);
 
-    setErrorMsg(null);
-    setToDonateCredit(0);
-    onClose();
-  };
-
-  const handleCreditOnChange = (e) => {
-    if (isNaN(Number(e.target.value))) {
-      e.target.value = '';
-      setErrorMsg(donationsMsg.onlyNumber);
-      return;
-    }
-
-    setErrorMsg(null);
-    setToDonateCredit(e.target.value);
-  };
-
-  const handleOnSubmit = async (e) => {
-    e.preventDefault();
-
-    if (credit < toDonateCredit) {
-      setErrorMsg(donationsMsg.creditNotEnough);
-      return;
-    }
-
-    try {
-      await proceedDonation(id, toDonateCredit);
-      deductCredit(toDonateCredit);
-      setErrorMsg(null);
-      setToDonateCredit(0);
-      toast.success('🌈 후원 완료!');
+  // 모달이 닫힐 때 애니메이션 동작을 위해 추가
+  const handleOnClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
       onClose();
-    } catch (error) {
-      console.log(error);
-      toast.error('❌ 후원 요청 실패! 다시 시도해주세요!');
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const handleOnClickBackground = (e) => {
+    if (!allowDimClose || !(e.target === e.currentTarget)) {
+      return;
     }
+
+    handleOnClose();
   };
 
   return ReactDOM.createPortal(
-    <div className={styles.modalBackground} onClick={handleOnCloseModal}>
-      <div className={styles.modalContent}>
-        <section className={styles.modalTitleContainer}>
-          <h4 className={styles.modalTitle}>후원하기</h4>
-          <button onClick={handleOnCloseModal} className={styles.modalClose}>
+    <div
+      className={`${styles.background} ${isClosing ? styles.fadeOut : ''}`}
+      onClick={handleOnClickBackground}
+    >
+      <div
+        className={`${styles.container} ${isClosing ? styles.slideOut : ''}`}
+      >
+        <div className={styles.titleContainer}>
+          {title && <h4 className={styles.title}>{title}</h4>}
+          <button
+            onClick={handleOnClose}
+            className={styles.close}
+            aria-label="모달 닫기"
+          >
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
-        </section>
-        <section className={styles.contentContainer}>
-          <div className={styles.contentWrapper}>
-            <img
-              src={idol.profilePicture}
-              alt={idol.name}
-              className={styles.idolImg}
-            />
-            <div className={styles.titleWrapper}>
-              <span className={styles.subtitle}>{subtitle}</span>
-              <h4 className={styles.title}>{title}</h4>
-            </div>
-          </div>
-        </section>
-        <form className={styles.creditContainer} onSubmit={handleOnSubmit}>
-          <div>
-            <div
-              className={`${styles.creditInputWrapper} ${errorMsg ? styles.error : ''}`}
-            >
-              <input
-                className={styles.creditInput}
-                type="text"
-                placeholder="크레딧 입력"
-                onChange={handleCreditOnChange}
-              />
-              <img src={creditIcon} alt="크레딧 아이콘" />
-            </div>
-            {errorMsg && (
-              <span className={styles.errorMessage}>{errorMsg}</span>
-            )}
-          </div>
-          <div className={styles.buttonWrapper}>
-            <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
-          </div>
-        </form>
+        </div>
+        <div className={styles.contentContainer} ref={modalRef}>
+          {children}
+        </div>
       </div>
     </div>,
     document.getElementById('modal-root'),
