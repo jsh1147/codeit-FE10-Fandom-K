@@ -4,6 +4,7 @@ import styles from './DonationCard.module.css';
 import ProgressBar from './ProgressBar';
 import Modal from './Modal';
 import DonationModalContent from './DonationModalContent';
+import useModal from '../hooks/useModal';
 
 export default function DonationCard({
   id,
@@ -14,18 +15,16 @@ export default function DonationCard({
   deadline,
   idol,
 }) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-    document.body.style.overflow = 'unset';
-  };
-
   const [toDonateCredit, setToDonateCredit] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
+
+  const { isOpen, openModal, closeModal } = useModal();
+
+  const handleCloseModal = () => {
+    setErrorMsg(null);
+    setToDonateCredit(0);
+    closeModal();
+  };
 
   return (
     <div className={styles.donationCard}>
@@ -50,12 +49,7 @@ export default function DonationCard({
           deadline={deadline}
         />
       </div>
-      <Modal
-        isOpen={modalOpen}
-        onClose={closeModal}
-        setErrorMsg={setErrorMsg}
-        setToDonateCredit={setToDonateCredit}
-      >
+      <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <DonationModalContent
           id={id}
           title={title}

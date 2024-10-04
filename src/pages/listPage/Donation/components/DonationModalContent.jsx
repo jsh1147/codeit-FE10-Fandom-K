@@ -2,10 +2,13 @@ import styles from './DonationModalContent.module.css';
 import creditIcon from '@/assets/icons/credit.svg';
 import { toast } from 'react-toastify';
 import { proceedDonation } from '@/apis/donationsApi';
-import { donationsErrorMsg } from '@/constants/errorMessages';
-import { donationsMsg } from '@/constants/successMessages';
 import { useCredit } from '@/hooks/useCredit';
 import Button from './Button';
+
+const ONLY_NUMBER = '숫자만 입력이 가능해요';
+const CREDIT_NOT_ENOUGH = '갖고 있는 크레딧보다 더 많이 후원할 수 없어요';
+const DONATION_SUCCESS = '🌈 후원 완료!';
+const DONATION_FAILURE = '❌ 후원 요청 실패! 다시 시도해주세요!';
 
 export default function DonationModalContent({
   id,
@@ -23,7 +26,7 @@ export default function DonationModalContent({
   const handleCreditOnChange = (e) => {
     if (isNaN(Number(e.target.value))) {
       e.target.value = '';
-      setErrorMsg(donationsErrorMsg.onlyNumber);
+      setErrorMsg(ONLY_NUMBER);
       return;
     }
 
@@ -35,7 +38,7 @@ export default function DonationModalContent({
     e.preventDefault();
 
     if (credit < toDonateCredit) {
-      setErrorMsg(donationsErrorMsg.creditNotEnough);
+      setErrorMsg(CREDIT_NOT_ENOUGH);
       return;
     }
 
@@ -44,11 +47,11 @@ export default function DonationModalContent({
       deductCredit(toDonateCredit);
       setErrorMsg(null);
       setToDonateCredit(0);
-      toast.success(donationsMsg.apiCallSuccess);
+      toast.success(DONATION_SUCCESS);
       onClose();
     } catch (error) {
       console.log(error);
-      toast.error(donationsErrorMsg.apiCallFailure);
+      toast.error(DONATION_FAILURE);
     }
   };
 

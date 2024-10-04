@@ -6,35 +6,31 @@ import { useEffect } from 'react';
 export default function Modal({
   isOpen,
   onClose,
-  setErrorMsg,
-  setToDonateCredit,
+  allowDimClose = true,
   children,
 }) {
   useEffect(() => {
     const escKeyModalClose = (e) => {
       if (e.key === 'Escape') {
-        setErrorMsg(null);
-        setToDonateCredit(0);
         onClose();
       }
     };
 
     window.addEventListener('keydown', escKeyModalClose);
     return () => window.removeEventListener('keydown', escKeyModalClose);
-  }, [onClose, setErrorMsg, setToDonateCredit]);
+  }, [onClose]);
 
   if (!isOpen) return null;
 
   const handleOnCloseModal = (e) => {
     if (
-      e.currentTarget.tagName.toLowerCase() === 'div' &&
-      !(e.target === e.currentTarget)
+      !allowDimClose ||
+      (e.currentTarget.tagName.toLowerCase() === 'div' &&
+        !(e.target === e.currentTarget))
     ) {
       return;
     }
 
-    setErrorMsg(null);
-    setToDonateCredit(0);
     onClose();
   };
 
@@ -43,7 +39,7 @@ export default function Modal({
       <div className={styles.modalContainer}>
         <div className={styles.modalTitleContainer}>
           <h4 className={styles.modalTitle}>후원하기</h4>
-          <button onClick={handleOnCloseModal} className={styles.modalClose}>
+          <button onClick={onClose} className={styles.modalClose}>
             <img src={closeIcon} alt="닫기 아이콘" />
           </button>
         </div>
