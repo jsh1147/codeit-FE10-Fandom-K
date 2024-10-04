@@ -1,11 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-export default function useModalFocusTrap(isOpen) {
+export default function useModalFocusTrap() {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    if (!isOpen) return;
-
     const focusableElements = modalRef.current.querySelectorAll(
       'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])',
     );
@@ -37,7 +35,7 @@ export default function useModalFocusTrap(isOpen) {
     return () => {
       document.removeEventListener('keydown', trapFocus);
     };
-  }, [isOpen]);
+  }, []);
 
   return { modalRef };
 }

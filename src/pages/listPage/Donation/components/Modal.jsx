@@ -5,14 +5,13 @@ import { useEffect, useState } from 'react';
 import useModalFocusTrap from '../hooks/useModalFocusTrap';
 
 export default function Modal({
-  isOpen,
   onClose,
   allowDimClose = true,
   title,
   children,
 }) {
   const [isClosing, setIsClosing] = useState(false);
-  const { modalRef } = useModalFocusTrap(isOpen);
+  const { modalRef } = useModalFocusTrap();
 
   useEffect(() => {
     const escKeyModalClose = (e) => {
@@ -33,8 +32,6 @@ export default function Modal({
       setIsClosing(false);
     }, 300);
   };
-
-  if (!isOpen) return null;
 
   const handleOnClickBackground = (e) => {
     if (

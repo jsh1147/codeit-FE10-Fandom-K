@@ -49,19 +49,21 @@ export default function DonationCard({
           deadline={deadline}
         />
       </div>
-      <Modal isOpen={isOpen} onClose={handleCloseModal} title="후원하기">
-        <DonationModalContent
-          id={id}
-          title={title}
-          subtitle={subtitle}
-          idol={idol}
-          errorMsg={errorMsg}
-          setErrorMsg={setErrorMsg}
-          toDonateCredit={toDonateCredit}
-          setToDonateCredit={setToDonateCredit}
-          onClose={handleCloseModal}
-        />
-      </Modal>
+      {isOpen && (
+        <Modal onClose={handleCloseModal} title="후원하기">
+          <DonationModalContent
+            id={id}
+            title={title}
+            subtitle={subtitle}
+            idol={idol}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            toDonateCredit={toDonateCredit}
+            setToDonateCredit={setToDonateCredit}
+            onClose={handleCloseModal}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
