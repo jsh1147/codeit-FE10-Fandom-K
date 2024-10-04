@@ -9,7 +9,4 @@ export default defineConfig({
       '@': '/src',
     },
   },
-  server: {
-    host: true, // 모든 네트워크에서 접근 허용
-  },
 });
