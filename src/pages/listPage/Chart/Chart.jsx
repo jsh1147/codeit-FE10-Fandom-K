@@ -15,14 +15,12 @@ export default function Chart() {
   const handleChangeList = (tab) => {
     setActiveTab(tab);
     setIdolList([]);
-    setCursor(null);
     setHasMore(true);
   };
 
   const fetchIdolList = async ({ gender, cursor, pageSize = 10 }) => {
     const data = await getCharts(gender, cursor, pageSize);
-    const idols = data.idols;
-    const nextCursor = data.nextCursor;
+    const { idols, nextCursor } = data || {};
 
     if (idols.length < pageSize || !nextCursor) {
       setHasMore(false);
@@ -65,10 +63,9 @@ export default function Chart() {
           />
         </div>
         <ol className={styles.list}>
-          {idolList &&
-            idolList.map((idol, index) => (
-              <IdolCard idol={idol} index={index} key={idol.id} />
-            ))}
+          {idolList.map((idol, index) => (
+            <IdolCard idol={idol} index={index} key={idol.id} />
+          ))}
         </ol>
       </div>
       {hasMore && <LoadMore onClick={handleLoadMore} />}
