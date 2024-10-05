@@ -50,6 +50,7 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 40% 20%;
 }
 
 .ranking {
