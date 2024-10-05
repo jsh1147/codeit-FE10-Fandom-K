@@ -71,3 +71,32 @@
   height: 52px;
   z-index: 2;
 }
+
+@media (max-width: 767px) {
+  .cardImgWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cardImg {
+    width: 72px;
+    height: 72px;
+  }
+  .image {
+    width: 75px;
+    height: 75px;
+  }
+
+  .IdolCards {
+    width: 88px;
+  }
+
+  .name {
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  .group {
+    font-size: 10px;
+  }
+}

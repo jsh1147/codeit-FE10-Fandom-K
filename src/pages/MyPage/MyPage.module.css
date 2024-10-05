@@ -1,10 +1,7 @@
 .myPage {
-  display: row;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  width: 100vw;
-  height: 100%;
   max-width: 1200px;
   margin: auto;
 }
@@ -20,7 +17,7 @@
 @media (max-width: 1199px) {
   .myPage {
     flex-direction: column;
-    width: 696px;
+    width: 638px;
     gap: 32px;
     padding: 24px;
     height: auto;
@@ -35,8 +32,8 @@
   .myPage {
     flex-direction: column;
     align-items: center;
+    width: 320px;
     padding: 16px;
-    width: 600px;
     height: auto;
   }
 

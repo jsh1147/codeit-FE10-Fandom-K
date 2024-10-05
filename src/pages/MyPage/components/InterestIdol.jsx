@@ -3,7 +3,7 @@ import DeselectIcon from '@/assets/icons/deselect-idol.svg';
 
 export default function InterestIdol({ idols, removeIdol }) {
   return (
-    <div className={styles.Container}>
+    <div className={styles.container}>
       <h2>내가 관심 있는 아이돌</h2>
       <div className={styles.idolList}>
         {idols.map((idol) => (
@@ -13,6 +13,7 @@ export default function InterestIdol({ idols, removeIdol }) {
                 src={idol.profilePicture}
                 alt={idol.name}
                 className={styles.image}
+                s
               />
               <button
                 className={styles.deleteIcon}

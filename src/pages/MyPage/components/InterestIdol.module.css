@@ -1,10 +1,11 @@
-.Container {
+.container {
   padding-top: 156px;
   margin-bottom: 32px;
   font-family: Pretendard;
   font-weight: 700;
   font-size: 24px;
   line-height: 26px;
+  max-width: 1200px;
   margin: 0 auto;
   color: #f6f6f6;
   text-align: left;
@@ -64,30 +65,66 @@
 .deleteIcon {
   position: absolute;
   top: 3px;
-  right: -3px;
+  right: 10px;
   width: 31px;
   height: 31px;
-  cursor: pointer;
   background: transparent;
   border: none;
-  z-index: 5;
 }
 
 @media (max-width: 1199px) {
-  .Container {
-    width: 696px;
+  .container {
     padding-top: 120px;
     font-size: 20px;
     margin-bottom: 24px;
   }
+
+  .deleteIcon {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+  }
 }
 
 @media (max-width: 767px) {
-  .Container {
-    width: 600px;
+  .container {
     padding-top: 80px;
     font-size: 16px;
     margin-bottom: 16px;
     text-align: left;
+  }
+
+  .idolCard {
+    width: 98px;
+  }
+
+  .cardContent {
+    width: 72px;
+    height: 72px;
+  }
+
+  .image {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+  }
+
+  .name {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+
+  .group {
+    font-size: 9px;
+  }
+
+  .deleteIcon {
+    position: absolute;
+    top: 1px;
+    right: 7px;
+    width: 22px;
+    height: 22px;
   }
 }
