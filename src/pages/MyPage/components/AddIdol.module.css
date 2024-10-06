@@ -1,0 +1,68 @@
+.container {
+  margin-top: 40px;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  color: #f6f6f6;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.addIdols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 32px;
+  row-gap: 32px;
+  column-gap: 24px;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    font-size: 20px;
+  }
+
+  .addIdols {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    font-size: 16px;
+  }
+
+  .addIdols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 16px;
+    padding: 16px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .slick-list {
+    overflow: visible; /* 오버플로우 문제 방지 */
+    max-height: 600px;
+    padding: 16px;
+  }
+
+  .slick-track {
+    display: flex !important;
+    height: auto !important; /* slick-track 높이 자동 설정 */
+  }
+
+  .addIdols .slick-slide {
+    display: flex !important; /* 슬라이드 내 요소가 플렉스 박스로 처리되도록 설정 */
+    align-items: center; /* 슬라이드 내 카드의 수직 정렬 */
+    justify-content: center; /* 슬라이드 내 카드의 수평 정렬 */
+  }
+}
