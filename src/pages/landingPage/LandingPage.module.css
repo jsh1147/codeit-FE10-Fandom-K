@@ -2,12 +2,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: radial-gradient(
-      farthest-corner at 0 0,
-      #14c4fe77 0,
-      var(--black-200) 150px
-    )
-    no-repeat left top / 150px 240px;
-  background-color: var(--black-200);
   color: white;
 }

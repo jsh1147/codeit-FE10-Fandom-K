@@ -13,7 +13,6 @@ export default function InterestIdol({ idols, removeIdol }) {
                 src={idol.profilePicture}
                 alt={idol.name}
                 className={styles.image}
-                s
               />
               <button
                 className={styles.deleteIcon}
