@@ -5,11 +5,13 @@
   padding: calc(80px + 48px) 0 48px;
   color: white;
 }
+
 @media (max-width: 1199px) {
   .main {
     padding: calc(70px + 24px) 24px 48px;
   }
 }
+
 @media (max-width: 767px) {
   .main {
     padding: calc(60px + 16px) 24px 48px;

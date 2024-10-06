@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import CreditTestPage from './pages/CreditTestPage';
-import LandingPage from './pages/landingPage/LandingPage';
+import LandingPage from './pages/LandingPage/LandingPage';
 import Layout from './components/layout/Layout';
 import ListPage from './pages/listPage/ListPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
