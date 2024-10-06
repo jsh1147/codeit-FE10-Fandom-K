@@ -17,7 +17,7 @@ export default function MyCredit() {
       <div className={styles.content}>
         <h2 className={styles.title}>내 크레딧</h2>
         <div className={styles.credit}>
-          <img className={styles.image} src={creditImage} />
+          <img className={styles.image} src={creditImage} alt="" />
           <span className={styles.amount}>{credit.toLocaleString()}</span>
         </div>
       </div>

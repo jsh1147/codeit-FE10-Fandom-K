@@ -35,16 +35,19 @@ export default function TopUpModal({ onClose }) {
               checked={value === amount}
             />
             <label
-              className={`${styles.label} ${value === amount ? styles.labelChecked : ''}`}
+              className={`${styles.label} ${
+                value === amount ? styles.labelChecked : ''
+              }`}
               htmlFor={`radio-${idx}`}
+              aria-label={`${value} 크레딧 선택하기`}
             >
-              <img src={creditImage} />
+              <img src={creditImage} alt="" />
               {value}
             </label>
           </Fragment>
         ))}
         <Button className={styles.button} onClick={handleButtonClick}>
-          <img className={styles.credit} src={creditWhiteImage} />
+          <img className={styles.credit} src={creditWhiteImage} alt="" />
           충전하기
         </Button>
       </form>
