@@ -1,7 +1,7 @@
 import { useState, Fragment } from 'react';
 import { useCredit } from '@/hooks/useCredit';
 import Modal from './Modal';
-import Button from '@/pages/landingPage/title/components/Button';
+import Button from '@/pages/LandingPage/Title/components/Button';
 import creditImage from '@/assets/icons/credit.svg';
 import creditWhiteImage from '@/assets/icons/credit-white.svg';
 import styles from './TopUpModal.module.css';
