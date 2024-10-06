@@ -1,3 +1,9 @@
+import { motion } from 'framer-motion';
+import {
+  bottomToTop,
+  leftToRight,
+  RightToLeft,
+} from '@/constants/motionConstants';
 import background_1 from '@/assets/images/landing/background_1.png';
 import background_2 from '@/assets/images/landing/background_2.png';
 import background_3 from '@/assets/images/landing/background_3.png';
@@ -18,13 +24,19 @@ export default function Description({ idx, keyword, content, imageAlt }) {
     url(${backgroundImage[idx]})`,
       }}
     >
-      <div
+      <motion.div
+        {...bottomToTop}
         className={`${styles.textArea} ${idx === 1 ? styles.textAreaRight : ''}`}
       >
         <span className={styles.keyword}>{keyword}</span>
         <h2 className={styles.content}>{content}</h2>
-      </div>
-      <img className={styles.image} src={decriptionImage[idx]} alt={imageAlt} />
+      </motion.div>
+      <motion.img
+        {...(idx === 1 ? leftToRight : RightToLeft)}
+        className={styles.image}
+        src={decriptionImage[idx]}
+        alt={imageAlt}
+      />
     </div>
   );
 }
