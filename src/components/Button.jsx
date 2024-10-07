@@ -10,7 +10,7 @@ export default function Button({
 }) {
   const buttonClass = classNames({
     [styles.default]: true,
-    [className]: true,
+    [className]: className,
     [styles.disabled]: disabled,
   });
 
