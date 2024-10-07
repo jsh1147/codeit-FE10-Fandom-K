@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './AddIdol.module.css';
 import { getIdols } from '@/apis/idolsApi';
-import AddButton from './AddButton';
 import SlideButton from './SlideButton';
 import IdolCard from './IdolCard';
 import Slider from 'react-slick'; // react-slick import
 import { addIdolsSettings } from '@/constants/carouselConstants'; // 상수 파일 import
+import Button from '@/components/Button';
+import plusIcon from '@/assets/icons/plus.svg';
 
 export default function AddIdol({ addIdol }) {
   const [idols, setIdols] = useState([]);
@@ -176,10 +177,12 @@ export default function AddIdol({ addIdol }) {
           disabled={!hasMore}
         />
       )}
-      <AddButton
-        onClick={handleAddInterestIdols}
-        className={styles.addButton}
-      />
+      <div className={styles.addButtonWrapper}>
+        <Button className={styles.addButton} onClick={handleAddInterestIdols}>
+          <img src={plusIcon} alt="" />
+          추가하기
+        </Button>
+      </div>
     </div>
   );
 }

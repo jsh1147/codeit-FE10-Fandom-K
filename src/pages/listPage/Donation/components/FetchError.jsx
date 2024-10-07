@@ -1,6 +1,6 @@
 import styles from './FetchError.module.css';
 import creditIcon from '@/assets/icons/credit.svg';
-import Button from './Button';
+import Button from '@/components/Button';
 
 export default function FetchError({ error }) {
   const handleReload = () => {
@@ -16,7 +16,7 @@ export default function FetchError({ error }) {
         에게 문의해주세요
       </p>
       <div className={styles.reloadButtonWrapper}>
-        <Button text="페이지 새로고침" onClick={handleReload} />
+        <Button onClick={handleReload}>페이지 새로고침</Button>
       </div>
     </div>
   );
