@@ -8,7 +8,7 @@ import { useApiFetch } from '@/hooks/useApiFetch';
 import Spinner from '@/components/Spinner';
 
 export default function Donations() {
-  const { data, isLoading, error } = useApiFetch(getDonations, 20);
+  const { data, isLoading, error } = useApiFetch(getDonations, 30);
   const donations = data?.list || [];
 
   return (

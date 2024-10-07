@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { proceedDonation } from '@/apis/donationsApi';
 import { useCredit } from '@/hooks/useCredit';
 import Button from '@/components/Button';
+import { useState } from 'react';
 
 const ONLY_NUMBER = '숫자만 입력이 가능해요';
 const CREDIT_NOT_ENOUGH = '갖고 있는 크레딧보다 더 많이 후원할 수 없어요';
@@ -22,6 +23,7 @@ export default function DonationModalContent({
   onClose,
 }) {
   const { credit, deductCredit } = useCredit();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCreditOnChange = (e) => {
     if (isNaN(Number(e.target.value))) {
@@ -43,6 +45,7 @@ export default function DonationModalContent({
     }
 
     try {
+      setIsSubmitting(true);
       await proceedDonation(id, toDonateCredit);
 
       deductCredit(toDonateCredit);
@@ -54,6 +57,8 @@ export default function DonationModalContent({
     } catch (error) {
       console.log(error);
       toast.error(DONATION_FAILURE);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -88,7 +93,7 @@ export default function DonationModalContent({
           {errorMsg && <span className={styles.errorMessage}>{errorMsg}</span>}
         </div>
         <div className={styles.buttonWrapper}>
-          <Button type="submit" disabled={!toDonateCredit}>
+          <Button type="submit" disabled={!toDonateCredit || isSubmitting}>
             후원하기
           </Button>
         </div>
