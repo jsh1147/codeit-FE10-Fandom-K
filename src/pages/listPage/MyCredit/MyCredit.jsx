@@ -1,12 +1,13 @@
 import { useCredit } from '@/hooks/useCredit';
-import { useModal } from '@/hooks/useModalPrev';
-import TopUpModal from './components/TopUpModal';
+import { useModal } from '@/hooks/useModal';
+import Modal from '@/components/Modal';
+import TopUpModalContent from './components/TopUpModalContent';
 import creditImage from '@/assets/icons/credit.svg';
 import styles from './MyCredit.module.css';
 
 export default function MyCredit() {
   const { credit } = useCredit();
-  const { openModal, Modal } = useModal(TopUpModal);
+  const { isOpen, openModal, closeModal } = useModal();
 
   const handleButtonClick = () => {
     openModal();
@@ -28,7 +29,11 @@ export default function MyCredit() {
       >
         충전하기
       </button>
-      <Modal />
+      {isOpen && (
+        <Modal title="크레딧 충전하기" onClose={closeModal}>
+          <TopUpModalContent onClose={closeModal} />
+        </Modal>
+      )}
     </section>
   );
 }
