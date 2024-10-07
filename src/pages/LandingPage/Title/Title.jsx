@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { scaleOut, bottomToTop } from '@/constants/motionConstants';
 import { useCredit } from '@/hooks/useCredit';
 import logo from '@/assets/images/logo.svg';
-import Button from './components/Button';
+import Button from '@/components/Button';
 import styles from './Title.module.css';
 
 export default function Title() {
