@@ -1,5 +1,5 @@
 import { useCredit } from '@/hooks/useCredit';
-import { useModal } from '@/hooks/useModal';
+import { useModal } from '@/hooks/useModalPrev';
 import TopUpModal from './components/TopUpModal';
 import creditImage from '@/assets/icons/credit.svg';
 import styles from './MyCredit.module.css';
