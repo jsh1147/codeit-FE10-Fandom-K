@@ -4,7 +4,7 @@ import styles from './DonationCard.module.css';
 import ProgressBar from './ProgressBar';
 import Modal from '@/components/Modal';
 import DonationModalContent from './DonationModalContent';
-import useModal from '@/hooks/useModal';
+import { useModal } from '@/hooks/useModal';
 
 export default function DonationCard({
   id,
