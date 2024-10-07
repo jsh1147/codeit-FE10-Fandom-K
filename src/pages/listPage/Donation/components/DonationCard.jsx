@@ -36,7 +36,9 @@ export default function DonationCard({
         />
       </div>
       <div className={styles.buttonWrapper}>
-        <Button onClick={openModal}>후원하기</Button>
+        <Button className={styles.button} onClick={openModal}>
+          후원하기
+        </Button>
       </div>
       <div className={styles.titleWrapper}>
         <span className={styles.subtitle}>{subtitle}</span>
