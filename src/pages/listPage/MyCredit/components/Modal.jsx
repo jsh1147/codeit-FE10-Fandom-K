@@ -20,6 +20,7 @@ export default function Modal({ title, onClose, children }) {
             className={styles.button}
             type="button"
             onClick={handleButtonClick}
+            aria-label="모달 종료하기"
           />
         </div>
         {children}

@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 
-export const useApiFetch = (fetchFunction, ...args) => {
+export function useApiFetch(fetchFunction, ...args) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,4 +28,4 @@ export const useApiFetch = (fetchFunction, ...args) => {
   }, [wrappedFunction]);
 
   return { data, isLoading, error };
-};
+}

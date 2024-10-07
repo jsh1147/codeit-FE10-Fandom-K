@@ -1,7 +1,9 @@
 import { useState, Fragment } from 'react';
 import { useCredit } from '@/hooks/useCredit';
 import Modal from './Modal';
-import Button from '@/pages/landingPage/title/components/Button';
+import Button from '@/components/Button';
+import creditImage from '@/assets/icons/credit.svg';
+import creditWhiteImage from '@/assets/icons/credit-white.svg';
 import styles from './TopUpModal.module.css';
 
 export default function TopUpModal({ onClose }) {
@@ -33,18 +35,21 @@ export default function TopUpModal({ onClose }) {
               checked={value === amount}
             />
             <label
-              className={`${styles.label} ${value === amount ? styles.labelChecked : ''}`}
+              className={`${styles.label} ${
+                value === amount ? styles.labelChecked : ''
+              }`}
               htmlFor={`radio-${idx}`}
+              aria-label={`${value} 크레딧 선택하기`}
             >
+              <img src={creditImage} alt="" />
               {value}
             </label>
           </Fragment>
         ))}
-        <Button
-          className={styles.button}
-          onClick={handleButtonClick}
-          content="충전하기"
-        />
+        <Button className={styles.button} onClick={handleButtonClick}>
+          <img className={styles.credit} src={creditWhiteImage} alt="" />
+          충전하기
+        </Button>
       </form>
     </Modal>
   );

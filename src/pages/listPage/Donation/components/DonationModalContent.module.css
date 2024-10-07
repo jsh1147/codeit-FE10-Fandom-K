@@ -1,49 +1,5 @@
-.modalBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  animation: fadeIn 0.5s ease forwards;
-}
-
-.modalContent {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  border-radius: 8px;
-  background: var(--black-100);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 24px 16px 32px 16px;
-  transform: translateY(-50px);
-  animation: slideIn 0.5s ease forwards;
-}
-
-.modalTitleContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modalTitle {
-  color: var(--white-100);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.modalClose {
-  padding: 0;
-}
-
 .contentContainer {
+  margin-top: 24px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -86,6 +42,7 @@
 
 .creditContainer {
   width: 100%;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -97,6 +54,7 @@
   background: #272f3d;
   padding: 16px;
   display: flex;
+  gap: 8px;
 }
 
 .error {
@@ -112,6 +70,7 @@
 }
 
 .creditInput {
+  width: 100%;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -124,24 +83,4 @@
 
 .buttonWrapper {
   height: 40px;
-}
-
-@keyframes fadeIn {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

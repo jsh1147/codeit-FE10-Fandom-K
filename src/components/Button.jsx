@@ -1,19 +1,27 @@
+import classNames from 'classnames';
 import styles from './Button.module.css';
 
 export default function Button({
-  text,
+  className,
   type = 'button',
   onClick,
   disabled = false,
+  children,
 }) {
+  const buttonClass = classNames({
+    [styles.default]: true,
+    [className]: className,
+    [styles.disabled]: disabled,
+  });
+
   return (
     <button
+      className={buttonClass}
       type={type}
-      className={`${styles.button} ${disabled ? styles.buttonDisabled : ''}`}
       onClick={onClick}
       disabled={disabled}
     >
-      {text}
+      {children}
     </button>
   );
 }
