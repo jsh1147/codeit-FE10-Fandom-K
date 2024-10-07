@@ -11,15 +11,6 @@
   position: relative;
 }
 
-.addIdols {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: 32px;
-  row-gap: 32px;
-  column-gap: 24px;
-}
-
 .addButtonWrapper {
   display: flex;
   justify-content: center;
@@ -36,6 +27,15 @@
   padding-right: 8px;
   border-radius: 9999px;
   font-size: 16px;
+}
+
+.addIdols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 32px;
+  row-gap: 32px;
+  column-gap: 24px;
 }
 
 @media (max-width: 1199px) {
@@ -74,12 +74,10 @@
   }
 
   .slick-track {
-    display: flex !important;
     height: auto !important;
   }
 
   .addIdols .slick-slide {
-    display: flex !important;
     align-items: center;
     justify-content: center;
   }

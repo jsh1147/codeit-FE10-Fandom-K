@@ -4,7 +4,7 @@ import Button from '@/components/Button';
 import creditIcon from '@/assets/icons/credit.svg';
 import styles from './WarningModal.module.css';
 
-const WarningModalTest = ({ isVisible, onClose }) => {
+export default function WarningModal({ isVisible, onClose }) {
   const { credit } = useCredit();
 
   if (!isVisible || credit >= 1000) return null;
@@ -23,6 +23,4 @@ const WarningModalTest = ({ isVisible, onClose }) => {
       </div>
     </Modal>
   );
-};
-
-export default WarningModalTest;
+}
