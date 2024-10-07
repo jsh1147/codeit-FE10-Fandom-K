@@ -31,6 +31,7 @@ export default function MyPage() {
 
   return (
     <div className={styles.myPage}>
+      <h1 className="blind">Fandom-K 마이 페이지</h1>
       <InterestIdol idols={interestIdols} removeIdol={removeIdol} />
       <div className={styles.divider}></div>
       <AddIdol addIdol={addIdol} />
