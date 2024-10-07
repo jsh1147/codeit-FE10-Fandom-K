@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react';
 import { useCredit } from '@/hooks/useCredit';
+import { toast } from 'react-toastify';
 import Button from '@/components/Button';
 import creditImage from '@/assets/icons/credit.svg';
 import creditWhiteImage from '@/assets/icons/credit-white.svg';
@@ -17,6 +18,7 @@ export default function TopUpModalContent({ onClose }) {
     e.preventDefault();
     addCredit(amount);
     onClose();
+    toast.success(`💎 ${amount} 크레딧 충전 완료!`);
   };
 
   return (
