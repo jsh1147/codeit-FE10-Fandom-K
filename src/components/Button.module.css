@@ -12,6 +12,10 @@
   color: white;
 }
 
+.default:hover {
+  background: linear-gradient(90deg, #ff5b55 0%, #ff357f 100%);
+}
+
 .disabled {
   background: var(--gray-200);
   cursor: auto;
