@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from './Button';
+import Button from '@/components/Button';
 import styles from './DonationCard.module.css';
 import ProgressBar from './ProgressBar';
 import Modal from '@/components/Modal';
@@ -36,7 +36,7 @@ export default function DonationCard({
         />
       </div>
       <div className={styles.buttonWrapper}>
-        <Button text="후원하기" onClick={openModal} />
+        <Button onClick={openModal}>후원하기</Button>
       </div>
       <div className={styles.titleWrapper}>
         <span className={styles.subtitle}>{subtitle}</span>

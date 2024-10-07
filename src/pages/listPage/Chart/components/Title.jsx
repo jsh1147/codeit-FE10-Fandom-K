@@ -1,3 +1,5 @@
+import Button from '@/components/Button';
+import chartIcon from '@/assets/icons/chart.svg';
 import styles from './Title.module.css';
 
 export default function Title() {
@@ -5,7 +7,10 @@ export default function Title() {
     <div className={styles.header}>
       <h2 className={styles.title}>이달의 차트</h2>
 
-      <button className={styles.modalButton}>차트 투표하기</button>
+      <Button className={styles.button}>
+        <img src={chartIcon} alt="" />
+        차트 투표하기
+      </Button>
     </div>
   );
 }
