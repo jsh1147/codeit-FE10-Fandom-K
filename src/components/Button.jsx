@@ -8,10 +8,8 @@ export default function Button({
   disabled = false,
   children,
 }) {
-  const buttonClass = classNames({
-    [styles.default]: true,
+  const buttonClass = classNames(styles.button, {
     [className]: className,
-    [styles.disabled]: disabled,
   });
 
   return (
