@@ -4,8 +4,8 @@ import { getIdols } from '@/apis/idolsApi';
 import AddButton from './AddButton';
 import SlideButton from './SlideButton';
 import IdolCard from './IdolCard';
-import Slider from 'react-slick'; // react-slick import
-import { addIdolsSettings } from '@/constants/carouselConstants'; // 상수 파일 import
+import Slider from 'react-slick';
+import { addIdolsSettings } from '@/constants/carouselConstants';
 
 export default function AddIdol({ addIdol }) {
   const [idols, setIdols] = useState([]);
