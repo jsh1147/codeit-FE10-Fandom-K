@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
-export function useModal(Modal) {
+export function useModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    document.body.style.overflow = 'unset';
   };
 
-  const wrappedModal = () => isOpen && <Modal onClose={closeModal}></Modal>;
-
-  return { openModal, Modal: wrappedModal };
+  return {
+    isOpen,
+    openModal,
+    closeModal,
+  };
 }

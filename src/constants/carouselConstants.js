@@ -122,3 +122,20 @@ export const donationsSettings = {
     },
   ],
 };
+
+export const addIdolsSettings = {
+  speed: 500,
+  rows: 2,
+  Infinite: false,
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        swipe: true,
+      },
+    },
+  ],
+};

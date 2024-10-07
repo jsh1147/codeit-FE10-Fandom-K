@@ -1,7 +1,4 @@
-import Description from './components/Description';
-import styles from './Descriptions.module.css';
-
-const descriptionDatas = [
+export const descriptionData = [
   {
     keyword: '후원하기',
     content: (
@@ -36,20 +33,3 @@ const descriptionDatas = [
     imageAlt: '관심 아이돌 모바일 뷰',
   },
 ];
-
-export default function Descriptions() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.guide} aria-hidden="true"></div>
-      {descriptionDatas.map((data, idx) => (
-        <Description
-          key={idx}
-          idx={idx}
-          keyword={data.keyword}
-          content={data.content}
-          imageAlt={data.imageAlt}
-        />
-      ))}
-    </section>
-  );
-}

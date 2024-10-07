@@ -3,7 +3,7 @@ import creditIcon from '@/assets/icons/credit.svg';
 import { toast } from 'react-toastify';
 import { proceedDonation } from '@/apis/donationsApi';
 import { useCredit } from '@/hooks/useCredit';
-import Button from './Button';
+import Button from '@/components/Button';
 
 const ONLY_NUMBER = '숫자만 입력이 가능해요';
 const CREDIT_NOT_ENOUGH = '갖고 있는 크레딧보다 더 많이 후원할 수 없어요';
@@ -88,7 +88,9 @@ export default function DonationModalContent({
           {errorMsg && <span className={styles.errorMessage}>{errorMsg}</span>}
         </div>
         <div className={styles.buttonWrapper}>
-          <Button text="후원하기" type="submit" disabled={!toDonateCredit} />
+          <Button type="submit" disabled={!toDonateCredit}>
+            후원하기
+          </Button>
         </div>
       </form>
     </>

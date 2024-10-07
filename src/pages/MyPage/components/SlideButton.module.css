@@ -1,0 +1,39 @@
+.slideButton {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background-color: #1b1b1b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.slideButton:hover {
+  background-color: #f77063;
+}
+
+.leftButton {
+  left: -60px;
+  width: 29px;
+  height: 135px;
+}
+
+.rightButton {
+  right: -60px;
+  width: 29px;
+  height: 135px;
+}
+
+.icon {
+  width: 12px;
+  height: 24px;
+}
+
+@media (max-width: 767px) {
+  .slideButton {
+    display: none;
+  }
+}
