@@ -19,5 +19,4 @@ button {
     )
     no-repeat left top / 150px 240px;
   background-color: var(--black-200);
-  background-attachment: fixed;
 }

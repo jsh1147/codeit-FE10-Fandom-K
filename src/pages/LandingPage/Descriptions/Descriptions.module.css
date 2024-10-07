@@ -14,6 +14,7 @@
   height: 3000px;
   background-image: linear-gradient(#030b1c, #051e32, #030b1c);
 }
+
 @media (max-width: 1199px) {
   .guide {
     width: 148px;
