@@ -12,20 +12,6 @@
   font-size: 24px;
 }
 
-.modalButton {
-  width: 134px;
-  height: 32px;
-  padding: 2px 16px 2px 44px;
-  border-radius: 3px;
-  background:
-    url('@/assets/icons/chart.svg') no-repeat left 16px center,
-    linear-gradient(90deg, #f86f65 0%, #fe5493 100%);
-  color: white;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.26px;
-}
-
 @media (max-width: 1199px) {
   .title {
     font-size: 20px;
