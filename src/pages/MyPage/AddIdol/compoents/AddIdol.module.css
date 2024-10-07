@@ -68,19 +68,19 @@
   }
 
   .slick-list {
-    overflow: visible; /* 오버플로우 문제 방지 */
+    overflow: visible;
     max-height: 600px;
     padding: 16px;
   }
 
   .slick-track {
     display: flex !important;
-    height: auto !important; /* slick-track 높이 자동 설정 */
+    height: auto !important;
   }
 
   .addIdols .slick-slide {
-    display: flex !important; /* 슬라이드 내 요소가 플렉스 박스로 처리되도록 설정 */
-    align-items: center; /* 슬라이드 내 카드의 수직 정렬 */
-    justify-content: center; /* 슬라이드 내 카드의 수평 정렬 */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 }
