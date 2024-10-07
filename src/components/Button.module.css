@@ -12,7 +12,7 @@
   color: white;
 }
 
-.default:hover {
+.default:not(.disabled):hover {
   background: linear-gradient(90deg, #ff5b55 0%, #ff357f 100%);
 }
 
