@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import CreditTestPage from './pages/CreditTestPage';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Layout from './components/layout/Layout';
 import ListPage from './pages/listPage/ListPage';
@@ -18,7 +17,6 @@ const router = createBrowserRouter(
       <Route element={<Layout />}>
         <Route path="list" element={<ListPage />} />
         <Route path="mypage" element={<MyPage />} />
-        <Route path="creditTest" element={<CreditTestPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </>,

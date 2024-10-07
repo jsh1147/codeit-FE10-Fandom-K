@@ -32,7 +32,7 @@ export default function Description({ idx, keyword, content, imageAlt }) {
         <h2 className={styles.content}>{content}</h2>
       </motion.div>
       <motion.img
-        {...(idx === 1 ? leftToRight : RightToLeft)}
+        {...(idx !== 1 ? leftToRight : RightToLeft)}
         className={styles.image}
         src={decriptionImage[idx]}
         alt={imageAlt}
