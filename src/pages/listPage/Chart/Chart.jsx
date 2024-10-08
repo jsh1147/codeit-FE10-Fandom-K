@@ -27,14 +27,17 @@ export default function Chart() {
 
   const fetchIdols = useCallback(
     async ({ gender, cursor, pageSize = 10, target }) => {
+      const isModalTarget = target === 'modal';
+      const isChartTarget = target === 'chart';
+
       if (
-        (target === 'modal' && (modalLoading || !modalHasMore)) ||
-        (target === 'chart' && (chartLoading || !chartHasMore))
+        (isModalTarget && (modalLoading || !modalHasMore)) ||
+        (isChartTarget && (chartLoading || !chartHasMore))
       ) {
         return;
       }
 
-      target === 'chart' ? setChartLoading(true) : setModalLoading(true);
+      isChartTarget ? setChartLoading(true) : setModalLoading(true);
 
       try {
         const data = await getCharts(gender, cursor, pageSize);
@@ -42,50 +45,33 @@ export default function Chart() {
         const nextCursor = data.nextCursor;
 
         if (idols.length < pageSize || !nextCursor) {
-          target === 'chart' ? setChartHasMore(false) : setModalHasMore(false);
+          isChartTarget ? setChartHasMore(false) : setModalHasMore(false);
         }
 
-        if (target === 'chart') {
+        if (isChartTarget) {
           setChartIdols((prevList) => [...prevList, ...idols]);
           setChartCursor(nextCursor);
-        } else if (target === 'modal') {
+        } else if (isModalTarget) {
           setModalIdols((prevList) => [...prevList, ...idols]);
           setModalCursor(nextCursor);
         }
       } catch (error) {
         console.error('Error fetching idols:', error);
       } finally {
-        target === 'chart' ? setChartLoading(false) : setModalLoading(false);
+        isChartTarget ? setChartLoading(false) : setModalLoading(false);
       }
     },
     [modalLoading, modalHasMore, chartLoading, chartHasMore],
   );
 
   useEffect(() => {
-    if (modalIsOpen) {
-      fetchIdols({
-        gender: activeTab,
-        cursor: null,
-        pageSize: 10,
-        target: 'modal',
-      });
-    } else if (updateResult && !modalIsOpen) {
-      isClose();
-      fetchIdols({
-        gender: activeTab,
-        cursor: null,
-        pageSize: 10,
-        target: 'chart',
-      });
-    } else if (!modalIsOpen && !updateResult) {
-      isClose();
-      fetchIdols({
-        gender: activeTab,
-        cursor: null,
-        pageSize: 10,
-        target: 'chart',
-      });
-    }
+    const target = modalIsOpen ? 'modal' : 'chart';
+    fetchIdols({
+      gender: activeTab,
+      cursor: null,
+      pageSize: 10,
+      target,
+    });
   }, [activeTab, modalIsOpen, updateResult]);
 
   const handleLoadMore = (target) => {
@@ -98,21 +84,22 @@ export default function Chart() {
 
   const handleChangeList = (tab) => {
     setActiveTab(tab);
+    resetState();
+  };
+
+  const resetState = () => {
     setChartIdols([]);
     setModalIdols([]);
+    setChartCursor(null);
+    setModalCursor(null);
     setChartHasMore(true);
     setModalHasMore(true);
+    setUpdateResult(false);
   };
 
   const isClose = () => {
-    setModalIdols([]);
-    setModalHasMore(true);
-    setModalCursor(null);
+    resetState();
     setModalIsOpen(false);
-    setChartIdols([]);
-    setChartCursor(null);
-    setChartHasMore(true);
-    setUpdateResult(false);
   };
 
   const modalProps = {
@@ -146,12 +133,7 @@ export default function Chart() {
         </div>
         <ol className={styles.list}>
           {chartIdols.map((idol, index) => (
-            <IdolCard
-              idol={idol}
-              index={index}
-              key={idol.id}
-              target={'chart'}
-            />
+            <IdolCard idol={idol} index={index} key={idol.id} target="chart" />
           ))}
         </ol>
       </div>

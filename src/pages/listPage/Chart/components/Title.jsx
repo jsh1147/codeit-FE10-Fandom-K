@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 export default function Title({ onClick, ...modalProps }) {
   const { credit } = useCredit();
-  const myCredit = parseInt(credit.toLocaleString().replace(/,/g, ''), 10);
   const [isWarningOpen, setIsWarningOpen] = useState(false);
 
   const title = modalProps.tabData.find(
@@ -20,7 +19,7 @@ export default function Title({ onClick, ...modalProps }) {
   };
 
   const handleOpenModal = () => {
-    if (myCredit >= 1000) {
+    if (credit >= 1000) {
       handleToggleModal(true);
     } else {
       setIsWarningOpen(true);
