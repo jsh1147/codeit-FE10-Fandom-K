@@ -8,7 +8,7 @@
 *::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-  background-color: inherit;
+  background-color: var(--black-200);
   box-sizing: content-box;
 }
 
@@ -23,6 +23,7 @@ button {
 }
 
 #root {
+  overflow-x: hidden;
   min-height: 100vh;
   background: radial-gradient(
       farthest-corner at 0 0,
