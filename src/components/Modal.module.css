@@ -44,7 +44,14 @@
 }
 
 .close {
-  padding: 0;
+  width: 24px;
+  height: 24px;
+  transition: 200ms;
+}
+
+.close:hover {
+  filter: brightness(2);
+  transform: rotate(90deg);
 }
 
 @keyframes fadeIn {

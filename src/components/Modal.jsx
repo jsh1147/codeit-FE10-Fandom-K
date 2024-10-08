@@ -49,7 +49,7 @@ export default function Modal({
         className={`${styles.container} ${isClosing ? styles.slideOut : ''}`}
       >
         <div className={styles.titleContainer}>
-          {title && <h4 className={styles.title}>{title}</h4>}
+          {title && <h3 className={styles.title}>{title}</h3>}
           <button
             onClick={handleOnClose}
             className={styles.close}
