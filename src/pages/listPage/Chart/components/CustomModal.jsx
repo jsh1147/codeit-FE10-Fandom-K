@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import IdolCard from './IdolCard';
+import { useCredit } from '@/hooks/useCredit';
 import close from '@/assets/icons/close-modal.svg';
 import closeMob from '@/assets/icons/arrow-left-for-mob.svg';
 import styles from './CustomModal.module.css';
@@ -35,6 +36,7 @@ export default function CustomModal({
   const modalRef = useRef(null);
   const [select, setSelect] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const { deductCredit } = useCredit();
 
   useEffect(() => {
     const handleResize = () => {
@@ -101,6 +103,7 @@ export default function CustomModal({
       const result = await postVotes(selectedIdolId);
       if (result) {
         modalProps.setUpdateResult((prev) => !prev);
+        deductCredit(1000);
         onRequestClose();
       }
     }
