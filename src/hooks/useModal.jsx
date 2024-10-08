@@ -10,8 +10,6 @@ export function useModal() {
   };
 
   const closeModal = (onClose = () => {}) => {
-    console.log(isOpen);
-    console.log(isClosing);
     setIsClosing(true);
     setTimeout(() => {
       document.body.style.overflow = 'unset';
