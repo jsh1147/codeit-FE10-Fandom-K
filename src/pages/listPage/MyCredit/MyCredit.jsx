@@ -7,7 +7,7 @@ import styles from './MyCredit.module.css';
 
 export default function MyCredit() {
   const { credit } = useCredit();
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, isClosing, closeModal } = useModal();
 
   const handleButtonClick = () => {
     openModal();
@@ -30,7 +30,11 @@ export default function MyCredit() {
         충전하기
       </button>
       {isOpen && (
-        <Modal title="크레딧 충전하기" onClose={closeModal}>
+        <Modal
+          title="크레딧 충전하기"
+          isClosing={isClosing}
+          onClose={closeModal}
+        >
           <TopUpModalContent onClose={closeModal} />
         </Modal>
       )}

@@ -1,32 +1,21 @@
 import styles from './Modal.module.css';
 import ReactDOM from 'react-dom';
 import closeIcon from '@/assets/icons/close-modal.svg';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import FocusTrap from './FocusTrap';
 
 export default function Modal({
+  isClosing,
   onClose = () => {},
   allowDimClose = true,
   title,
   children,
 }) {
-  const [isClosing, setIsClosing] = useState(false);
-
-  // 모달이 닫힐 때 애니메이션 동작을 위해 추가
-  const handleOnClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      onClose();
-      setIsClosing(false);
-    }, 300);
-  };
-
   const handleOnClickBackground = (e) => {
     if (!allowDimClose || !(e.target === e.currentTarget)) {
       return;
     }
-
-    handleOnClose();
+    onClose();
   };
 
   useEffect(() => {
@@ -51,7 +40,7 @@ export default function Modal({
         <div className={styles.titleContainer}>
           {title && <h3 className={styles.title}>{title}</h3>}
           <button
-            onClick={handleOnClose}
+            onClick={onClose}
             className={styles.close}
             aria-label="모달 닫기"
           >
