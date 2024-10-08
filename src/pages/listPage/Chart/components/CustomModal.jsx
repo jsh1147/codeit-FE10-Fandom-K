@@ -108,8 +108,6 @@ export default function CustomModal({
     classNames(styles.header, { [styles.headerMob]: isMobile });
   const titleStatus = (isMobile) =>
     classNames(styles.title, { [styles.titleMob]: isMobile });
-  const buttonStatus = (select) =>
-    classNames(styles.submitButton, { [styles.active]: select });
 
   const resetModal = () => {
     setSelectIdolId(null);
@@ -159,8 +157,8 @@ export default function CustomModal({
           <div className={styles.footer}>
             <Button
               type="submit"
+              className={styles.submitButton}
               disabled={!select}
-              className={buttonStatus(select)}
             >
               투표하기
             </Button>
