@@ -140,9 +140,3 @@
     font-size: 14px;
   }
 }
-
-@media (max-width: 767px) {
-  .item {
-    min-width: 327px;
-  }
-}
