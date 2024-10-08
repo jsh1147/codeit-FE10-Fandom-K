@@ -137,4 +137,8 @@
     width: 22px;
     height: 22px;
   }
+
+  .emptyState {
+    height: 163px;
+  }
 }
