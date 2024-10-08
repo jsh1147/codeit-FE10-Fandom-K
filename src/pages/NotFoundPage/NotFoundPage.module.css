@@ -36,6 +36,11 @@
   justify-content: center;
 }
 
+.button {
+  width: 130px;
+  height: 40px;
+}
+
 @media (max-width: 1199px) {
   .container {
     padding: 50px;

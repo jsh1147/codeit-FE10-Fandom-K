@@ -1,0 +1,23 @@
+.button {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--orange-primary) 0%,
+    var(--pink-accent) 100%
+  );
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  transition: 300ms;
+}
+
+.button:hover {
+  filter: saturate(2);
+}
+
+.button:disabled {
+  filter: grayscale(1);
+  cursor: auto;
+}

@@ -4,11 +4,11 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import CreditTestPage from './pages/CreditTestPage';
-import LandingPage from './pages/landingPage/LandingPage';
+import LandingPage from './pages/LandingPage/LandingPage';
 import Layout from './components/layout/Layout';
 import ListPage from './pages/listPage/ListPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import MyPage from './pages/MyPage/MyPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,8 +16,7 @@ const router = createBrowserRouter(
       <Route index element={<LandingPage />} />
       <Route element={<Layout />}>
         <Route path="list" element={<ListPage />} />
-        <Route path="mypage" element={<h1>My Page</h1>} />
-        <Route path="creditTest" element={<CreditTestPage />} />
+        <Route path="mypage" element={<MyPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </>,
