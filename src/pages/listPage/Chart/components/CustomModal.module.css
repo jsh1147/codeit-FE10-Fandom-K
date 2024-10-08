@@ -80,7 +80,7 @@
 
 @media (max-width: 767px) {
   .modalContent {
-    padding: 24px 0 14px 24px;
+    padding: 24px;
   }
 
   .headerMob {
