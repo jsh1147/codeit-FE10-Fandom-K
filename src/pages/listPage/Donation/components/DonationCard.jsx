@@ -18,12 +18,15 @@ export default function DonationCard({
   const [toDonateCredit, setToDonateCredit] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, isClosing, closeModal } = useModal();
+
+  const resetContentState = () => {
+    setErrorMsg('');
+    setToDonateCredit(0);
+  };
 
   const handleCloseModal = () => {
-    setErrorMsg(null);
-    setToDonateCredit(0);
-    closeModal();
+    closeModal(resetContentState);
   };
 
   return (
@@ -52,7 +55,11 @@ export default function DonationCard({
         />
       </div>
       {isOpen && (
-        <Modal onClose={handleCloseModal} title="후원하기">
+        <Modal
+          isClosing={isClosing}
+          onClose={handleCloseModal}
+          title="후원하기"
+        >
           <DonationModalContent
             id={id}
             title={title}

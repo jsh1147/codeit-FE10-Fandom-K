@@ -7,9 +7,19 @@ import { getDonations } from '@/apis/donationsApi';
 import { useApiFetch } from '@/hooks/useApiFetch';
 import Spinner from '@/components/Spinner';
 
+const PAGE_SIZE = 30;
+
 export default function Donations() {
-  const { data, isLoading, error } = useApiFetch(getDonations, 30);
+  const { data, isLoading, error, makeRequest } = useApiFetch(
+    getDonations,
+    PAGE_SIZE,
+  );
+
   const donations = data?.list || [];
+
+  const handleOnError = () => {
+    makeRequest(PAGE_SIZE);
+  };
 
   return (
     <section className={styles.donations}>
@@ -18,7 +28,7 @@ export default function Donations() {
           <Spinner width="80px" height="80px" />
         </div>
       ) : error ? (
-        <FetchError error={error} />
+        <FetchError error={error} onError={handleOnError} />
       ) : (
         <Slider {...settings}>
           {donations.map((item) => (
