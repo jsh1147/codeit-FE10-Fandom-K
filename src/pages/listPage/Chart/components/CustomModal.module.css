@@ -11,7 +11,6 @@
 
 .headerMob {
   flex-direction: row-reverse;
-  justify-content: flex-end;
   gap: 87px;
 }
 
@@ -34,6 +33,7 @@
 .scroll {
   height: 513px;
   overflow-y: auto;
+  padding-right: 14px;
 }
 
 .list {
@@ -76,4 +76,37 @@
 
 .point {
   color: var(--orange-primary);
+}
+
+@media (max-width: 767px) {
+  .modalContent {
+    padding: 24px 0 14px 24px;
+  }
+
+  .headerMob {
+    position: relative;
+    justify-content: center;
+  }
+
+  .titleMob {
+    line-height: 24px;
+  }
+
+  .closeModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .form {
+    height: 100%;
+  }
+
+  .scroll {
+    height: auto;
+  }
+
+  .footer {
+    gap: 8px;
+  }
 }
