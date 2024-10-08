@@ -62,9 +62,24 @@
   justify-content: center;
   width: 70px;
   height: 70px;
-  border: 1px solid var(--orange-primary);
+  box-shadow: inset 0 0 0 1px var(--orange-primary);
   border-radius: 50%;
   position: relative;
+}
+
+.selectIdol {
+  background:
+    url('@/assets/icons/select-idol.svg') no-repeat center,
+    linear-gradient(
+      271deg,
+      rgba(249, 110, 104, 0.5) -9.84%,
+      rgba(254, 87, 143, 0.5) 107.18%
+    );
+  background-size: 24px 24px;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 50%;
 }
 
 .picture {
@@ -93,6 +108,20 @@
   font-size: 16px;
 }
 
+[type='radio'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3.5px solid white;
+  background-color: var(--white-200);
+}
+
+[type='radio']:checked {
+  background-color: var(--orange-primary);
+  border: 3.5px solid white;
+}
+
 @media (max-width: 1199px) {
   .item {
     width: 100%;
@@ -109,11 +138,5 @@
 
   .votes {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 767px) {
-  .item {
-    min-width: 327px;
   }
 }

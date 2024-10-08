@@ -62,23 +62,25 @@
     overflow-y: auto;
     overflow-x: hidden;
     gap: 16px;
-    padding: 16px;
+    padding: 0 0 0 76px;
     max-width: 100%;
     width: 100%;
   }
+}
 
-  .slick-list {
-    overflow: visible;
-    max-height: 600px;
-    padding: 16px;
+@media (max-width: 672px) {
+  .addIdols {
+    padding: 0 0 0 51px;
   }
+}
 
-  .slick-track {
-    height: auto !important;
+@media (max-width: 555px) {
+  .addIdols {
+    padding: 0 0 0 25px;
   }
-
-  .addIdols .slick-slide {
-    align-items: center;
-    justify-content: center;
+}
+@media (max-width: 480px) {
+  .addIdols {
+    padding: 0;
   }
 }

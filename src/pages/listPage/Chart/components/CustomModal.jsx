@@ -7,10 +7,13 @@ import styles from './CustomModal.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { postVotes } from '@/apis/votesApi.js';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
+import Button from '@/components/Button';
 
 const modalStyles = (isMobile) => ({
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.80)',
+    zIndex: 1,
   },
   content: {
     top: '50%',
@@ -23,6 +26,7 @@ const modalStyles = (isMobile) => ({
     borderRadius: '12px',
     width: isMobile ? '100%' : '525px',
     height: isMobile ? '100%' : '693px',
+    zIndex: 1,
   },
 });
 
@@ -35,19 +39,14 @@ export default function CustomModal({
 }) {
   const modalRef = useRef(null);
   const [select, setSelect] = useState(false);
+  const [selectIdolId, setSelectIdolId] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const { deductCredit } = useCredit();
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -64,12 +63,7 @@ export default function CustomModal({
   }, [modalProps.modalLoading, modalProps.modalCursor]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
@@ -79,12 +73,9 @@ export default function CustomModal({
     if (!modalRef.current || modalProps.modalLoading) return;
 
     const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
-
     if (
       scrollTop + clientHeight >= scrollHeight - 30 &&
-      !modalProps.modalLoading &&
-      modalProps.modalHasMore &&
-      !modalProps.modalLoading
+      modalProps.modalHasMore
     ) {
       modalProps.fetchIdols({
         gender: modalProps.activeTab,
@@ -99,38 +90,38 @@ export default function CustomModal({
       'input[name="modal"]:checked',
     )?.value;
 
-    if (selectedIdolId) {
-      const result = await postVotes(selectedIdolId);
-      if (result) {
-        modalProps.setUpdateResult((prev) => !prev);
-        deductCredit(1000);
-        onRequestClose();
-      }
+    try {
+      await postVotes(selectedIdolId);
+      modalProps.setUpdateResult((prev) => !prev);
+      deductCredit(1000);
+      onRequestClose();
+      toast.success('✔️ 투표 완료!');
+    } catch (error) {
+      console.error(error);
+      toast.error('❌ 투표 요청 실패! 다시 시도해주세요!');
+    } finally {
+      setSelectIdolId(null);
     }
   };
 
-  const buttonStatus = (select) =>
-    classNames({
-      [styles.submitButton]: true,
-      [styles.active]: select === true,
-    });
-
   const closeStatus = (isMobile) =>
-    classNames({
-      [styles.header]: true,
-      [styles.headerMob]: isMobile === true,
-    });
-
+    classNames(styles.header, { [styles.headerMob]: isMobile });
   const titleStatus = (isMobile) =>
-    classNames({
-      [styles.title]: true,
-      [styles.titleMob]: isMobile === true,
-    });
+    classNames(styles.title, { [styles.titleMob]: isMobile });
+  const buttonStatus = (select) =>
+    classNames(styles.submitButton, { [styles.active]: select });
+
+  const resetModal = () => {
+    setSelectIdolId(null);
+    setSelect(false);
+    onRequestClose();
+    onClick();
+  };
 
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      onRequestClose={resetModal}
       contentLabel={title}
       style={modalStyles(isMobile)}
     >
@@ -144,14 +135,7 @@ export default function CustomModal({
         >
           <div className={closeStatus(isMobile)}>
             <h2 className={titleStatus(isMobile)}>{title}</h2>
-
-            <button
-              className={styles.closeModal}
-              onClick={() => {
-                onRequestClose();
-                onClick();
-              }}
-            >
+            <button className={styles.closeModal} onClick={resetModal}>
               <img src={isMobile ? closeMob : close} alt="닫기" />
             </button>
           </div>
@@ -164,7 +148,8 @@ export default function CustomModal({
                   index={index}
                   key={idol.id}
                   target="modal"
-                  select={select}
+                  selectIdolId={selectIdolId}
+                  setSelectIdolId={setSelectIdolId}
                   setSelect={setSelect}
                 />
               ))}
@@ -172,13 +157,13 @@ export default function CustomModal({
           </div>
 
           <div className={styles.footer}>
-            <button
-              className={buttonStatus(select)}
+            <Button
               type="submit"
               disabled={!select}
+              className={buttonStatus(select)}
             >
               투표하기
-            </button>
+            </Button>
             <div className={styles.info}>
               투표하는 데 <span className={styles.point}>1000크레딧</span>이
               소모됩니다.

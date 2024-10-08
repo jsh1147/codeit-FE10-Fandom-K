@@ -1,7 +1,14 @@
 import classNames from 'classnames';
 import styles from './IdolCard.module.css';
 
-export default function IdolCard({ idol, index, target, setSelect }) {
+export default function IdolCard({
+  idol,
+  index,
+  target,
+  selectIdolId,
+  setSelectIdolId,
+  setSelect,
+}) {
   const itemClass = classNames(styles.item, {
     [styles.modalItem]: target === 'modal',
   });
@@ -17,10 +24,18 @@ export default function IdolCard({ idol, index, target, setSelect }) {
 
   const handleClick = () => {
     if (target === 'modal') {
-      document.getElementById(idol.name).click();
+      const selectIdol = document.getElementById(idol.name);
+      selectIdol.click();
     }
     setSelect(true);
+    setSelectIdolId(idol.id);
   };
+
+  const isSelected = selectIdolId === idol.id;
+
+  const selectClass = classNames({
+    [styles.selectIdol]: isSelected,
+  });
 
   return (
     <li className={itemClass} onClick={handleClick}>
@@ -32,6 +47,7 @@ export default function IdolCard({ idol, index, target, setSelect }) {
               src={idol.profilePicture}
               alt={idol.name}
             />
+            <div className={selectClass}></div>
           </div>
           <div className={styles.ranking}>{index + 1}</div>
           <div className={infoClass}>
@@ -43,13 +59,7 @@ export default function IdolCard({ idol, index, target, setSelect }) {
         </div>
 
         {target === 'modal' && (
-          <input
-            id={idol.name}
-            type="radio"
-            name={target}
-            value={idol.id}
-            className={styles.radio}
-          />
+          <input id={idol.name} type="radio" name={target} value={idol.id} />
         )}
       </div>
 
