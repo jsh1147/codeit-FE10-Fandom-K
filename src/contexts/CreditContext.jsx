@@ -16,6 +16,13 @@ export function CreditProvider({ children }) {
 
     setCredit((prev) => {
       const credit = operation === 'add' ? prev + value : prev - value;
+
+      if (credit < 0) {
+        throw new Error(
+          `크레딧 값이 음수가 될 수 없습니다. 크레딧 값: ${credit}`,
+        );
+      }
+
       localStorage.setItem(CREDIT_KEY, credit);
 
       return credit;

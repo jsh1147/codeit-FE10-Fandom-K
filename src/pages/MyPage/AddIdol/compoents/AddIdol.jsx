@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import { addIdolsSettings } from '@/constants/carouselConstants';
 import Button from '@/components/Button';
 import plusIcon from '@/assets/icons/plus.svg';
+import { toast } from 'react-toastify';
 
 export default function AddIdol({ addIdol }) {
   const [idols, setIdols] = useState([]);
@@ -79,7 +80,15 @@ export default function AddIdol({ addIdol }) {
   };
 
   const handleAddInterestIdols = () => {
-    addIdol(selectedIdols);
+    try {
+      addIdol(selectedIdols);
+      if (selectedIdols.length > 0) {
+        toast.success(`👩 추가 완료!`);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('❌ 추가 요청 실패! 다시 시도해주세요!');
+    }
     setSelectedIdols([]);
   };
 

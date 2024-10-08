@@ -32,12 +32,30 @@
   .myPage {
     flex-direction: column;
     align-items: center;
-    width: 320px;
+    width: 600px;
     padding: 16px;
     height: auto;
   }
 
   .divider {
     margin: 16px 0;
+  }
+}
+
+@media (max-width: 672px) {
+  .myPage {
+    width: 500px;
+  }
+}
+
+@media (max-width: 555px) {
+  .myPage {
+    width: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+  .myPage {
+    width: 320px;
   }
 }

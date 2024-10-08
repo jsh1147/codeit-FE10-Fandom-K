@@ -12,7 +12,8 @@
 }
 
 .slideButton:hover {
-  background-color: #f77063;
+  filter: brightness(1.5);
+  transition: filter 0.3s ease;
 }
 
 .leftButton {
@@ -30,10 +31,4 @@
 .icon {
   width: 12px;
   height: 24px;
-}
-
-@media (max-width: 767px) {
-  .slideButton {
-    display: none;
-  }
 }

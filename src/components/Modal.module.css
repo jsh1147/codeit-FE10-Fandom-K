@@ -93,3 +93,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 340px;
+  }
+}
