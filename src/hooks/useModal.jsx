@@ -9,7 +9,7 @@ export function useModal() {
     document.body.style.overflow = 'hidden';
   };
 
-  const closeModal = (onClose) => {
+  const closeModal = (onClose = () => {}) => {
     setIsClosing(true);
     setTimeout(() => {
       document.body.style.overflow = 'unset';
