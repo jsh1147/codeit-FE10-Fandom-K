@@ -80,12 +80,14 @@ export default function AddIdol({ addIdol }) {
   };
 
   const handleAddInterestIdols = () => {
-    addIdol(selectedIdols);
-    if (selectedIdols.length > 0) {
-      toast.success(`👩 추가 완료!`, {
-        position: 'top-right',
-        autoClose: 2000,
-      });
+    try {
+      addIdol(selectedIdols);
+      if (selectedIdols.length > 0) {
+        toast.success(`👩 추가 완료!`);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('❌ 추가 요청 실패! 다시 시도해주세요!');
     }
     setSelectedIdols([]);
   };
