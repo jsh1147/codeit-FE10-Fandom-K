@@ -1,13 +1,13 @@
-import { useCredit } from '@/hooks/useCredit';
+// import { useCredit } from '@/hooks/useCredit';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 import creditIcon from '@/assets/icons/credit.svg';
 import styles from './WarningModal.module.css';
 
-export default function WarningModal({ isVisible, onClose }) {
-  const { credit } = useCredit();
+export default function WarningModal({ isOpen, onClose }) {
+  // const { credit } = useCredit();
 
-  if (!isVisible || credit >= 1000) return null;
+  if (!isOpen) return null;
 
   return (
     <Modal onClose={onClose}>

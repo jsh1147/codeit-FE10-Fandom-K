@@ -6,7 +6,11 @@
   max-width: 588px;
 }
 
-.content,
+.modalItem {
+  cursor: pointer;
+}
+
+.item,
 .divide {
   width: 100%;
 }
@@ -15,18 +19,35 @@
   display: none;
 }
 
+.modalContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chartContent {
+  width: 100%;
+}
+
 .content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 70px;
   color: white;
+  gap: 12px;
 }
 
 .info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
+  flex-grow: 1;
+}
+
+.modalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .divide {
@@ -43,6 +64,7 @@
   height: 70px;
   border: 1px solid var(--orange-primary);
   border-radius: 50%;
+  position: relative;
 }
 
 .picture {
@@ -50,6 +72,7 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 40% 20%;
 }
 
 .ranking {

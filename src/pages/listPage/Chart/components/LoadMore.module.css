@@ -1,10 +1,16 @@
 .button {
-  padding: 8px 143px;
+  padding: 8px 140px;
   border: 1px solid rgba(241, 238, 249, 0.8);
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.1);
   font-size: 14px;
   font-weight: 700;
   color: white;
-  line-height: 26px;
+  height: 42px;
+}
+
+@media (max-width: 767px) {
+  .button {
+    min-width: 327px;
+  }
 }
