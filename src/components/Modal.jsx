@@ -12,17 +12,6 @@ export default function Modal({
 }) {
   const [isClosing, setIsClosing] = useState(false);
 
-  useEffect(() => {
-    const escKeyModalClose = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', escKeyModalClose);
-    return () => window.removeEventListener('keydown', escKeyModalClose);
-  }, [onClose]);
-
   // 모달이 닫힐 때 애니메이션 동작을 위해 추가
   const handleOnClose = () => {
     setIsClosing(true);
@@ -39,6 +28,17 @@ export default function Modal({
 
     handleOnClose();
   };
+
+  useEffect(() => {
+    const escKeyModalClose = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', escKeyModalClose);
+    return () => window.removeEventListener('keydown', escKeyModalClose);
+  }, [onClose]);
 
   return ReactDOM.createPortal(
     <div
