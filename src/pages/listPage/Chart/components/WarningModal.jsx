@@ -1,16 +1,11 @@
-// import { useCredit } from '@/hooks/useCredit';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 import creditIcon from '@/assets/icons/credit.svg';
 import styles from './WarningModal.module.css';
 
-export default function WarningModal({ isOpen, onClose }) {
-  // const { credit } = useCredit();
-
-  if (!isOpen) return null;
-
+export default function WarningModal({ isClosing, onClose }) {
   return (
-    <Modal onClose={onClose}>
+    <Modal isClosing={isClosing} onClose={onClose}>
       <div className={styles.content}>
         <img src={creditIcon} alt="크레딧 아이콘" className={styles.icon} />
         <p className={styles.messageText}>

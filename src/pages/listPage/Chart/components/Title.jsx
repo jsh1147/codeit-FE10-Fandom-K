@@ -4,11 +4,10 @@ import WarningModal from './WarningModal';
 import Button from '@/components/Button';
 import chartIcon from '@/assets/icons/chart.svg';
 import { useCredit } from '@/hooks/useCredit';
-import { useState } from 'react';
+import { useModal } from '@/hooks/useModal';
 
 export default function Title({ onClick, ...modalProps }) {
   const { credit } = useCredit();
-  const [isWarningOpen, setIsWarningOpen] = useState(false);
 
   const title = modalProps.tabData.find(
     (item) => modalProps.activeTab === item.status,
@@ -18,16 +17,14 @@ export default function Title({ onClick, ...modalProps }) {
     modalProps.setModalIsOpen(isOpen);
   };
 
+  const { isOpen, openModal, isClosing, closeModal } = useModal();
+
   const handleOpenModal = () => {
     if (credit >= 1000) {
       handleToggleModal(true);
     } else {
-      setIsWarningOpen(true);
+      openModal();
     }
-  };
-
-  const handleCloseWarning = () => {
-    setIsWarningOpen(false);
   };
 
   return (
@@ -48,7 +45,7 @@ export default function Title({ onClick, ...modalProps }) {
           {...modalProps}
         />
 
-        <WarningModal isOpen={isWarningOpen} onClose={handleCloseWarning} />
+        {isOpen && <WarningModal isClosing={isClosing} onClose={closeModal} />}
       </div>
     </div>
   );
