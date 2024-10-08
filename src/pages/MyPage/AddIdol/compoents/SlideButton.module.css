@@ -31,9 +31,3 @@
   width: 12px;
   height: 24px;
 }
-
-@media (max-width: 767px) {
-  .slideButton {
-    display: none;
-  }
-}
