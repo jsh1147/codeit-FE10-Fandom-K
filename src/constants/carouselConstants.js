@@ -31,6 +31,21 @@ export const donationsSettings = {
   responsive: commonResponsiveSettings(donationBreakpoints),
 };
 
+const interestIdolsBreakpoints = [
+  { breakpoint: 1199, slidesToShow: 5.05 },
+  { breakpoint: 767, slidesToShow: 6 },
+  { breakpoint: 560, slidesToShow: 5.1 },
+  { breakpoint: 500, slidesToShow: 3.12 },
+];
+
+export const interestIdolsSettings = {
+  slidesToShow: 10.02,
+  swipeToSlide: true,
+  arrows: false,
+  swipe: true,
+  responsive: commonResponsiveSettings(interestIdolsBreakpoints),
+};
+
 export const addIdolsSettings = {
   speed: 500,
   rows: 2,
