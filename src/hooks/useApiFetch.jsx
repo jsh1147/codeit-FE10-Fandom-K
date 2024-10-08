@@ -27,5 +27,5 @@ export function useApiFetch(fetchFunction, ...args) {
     wrappedFunction(...args);
   }, [wrappedFunction]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, makeRequest: wrappedFunction };
 }
