@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import InterestIdol from './components/InterestIdol';
-import AddIdol from './components/AddIdol';
+import InterestIdol from './InterestIdol/components/InterestIdol';
+import AddIdol from './AddIdol/compoents/AddIdol';
 import styles from './MyPage.module.css';
 
 export default function MyPage() {
