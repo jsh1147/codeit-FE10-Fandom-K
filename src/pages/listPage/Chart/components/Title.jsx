@@ -49,10 +49,7 @@ export default function Title({ onClick, ...modalProps }) {
           {...modalProps}
         />
 
-        <WarningModal
-          isOpen={isWarningOpen}
-          onRequestClose={handleCloseWarning}
-        />
+        <WarningModal isOpen={isWarningOpen} onClose={handleCloseWarning} />
       </div>
     </div>
   );
