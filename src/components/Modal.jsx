@@ -5,12 +5,17 @@ import { useEffect, useState } from 'react';
 import FocusTrap from './FocusTrap';
 
 export default function Modal({
-  onClose,
+  isOpen = true,
+  onClose = () => {},
   allowDimClose = true,
   title,
   children,
 }) {
   const [isClosing, setIsClosing] = useState(false);
+
+  if (isOpen) {
+    document.body.style.overflow = 'hidden';
+  }
 
   // 모달이 닫힐 때 애니메이션 동작을 위해 추가
   const handleOnClose = () => {
@@ -18,6 +23,7 @@ export default function Modal({
     setTimeout(() => {
       onClose();
       setIsClosing(false);
+      document.body.style.overflow = 'unset';
     }, 300);
   };
 
