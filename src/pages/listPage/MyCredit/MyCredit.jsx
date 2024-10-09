@@ -13,6 +13,10 @@ export default function MyCredit() {
     openModal();
   };
 
+  const handleModalClose = () => {
+    closeModal();
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.content}>
@@ -33,9 +37,9 @@ export default function MyCredit() {
         <Modal
           title="크레딧 충전하기"
           isClosing={isClosing}
-          onClose={closeModal}
+          onClose={handleModalClose}
         >
-          <TopUpModalContent onClose={closeModal} />
+          <TopUpModalContent onClose={handleModalClose} />
         </Modal>
       )}
     </section>
